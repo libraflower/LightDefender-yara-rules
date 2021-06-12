@@ -27,5 +27,5 @@ rule Ransomware.Globeimposter {
       $s20 = "UY3 /i" fullword ascii
    condition:
       uint16(0) == 0x5a4d and filesize < 1000KB and
-      8 of them
+      5 of them
 }
