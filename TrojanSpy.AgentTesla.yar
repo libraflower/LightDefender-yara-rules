@@ -307,6 +307,9 @@ rule spy_agenttesla2 {
       $s21 = "get_btnlogin" fullword ascii
       $s22 = "_LogWarning" fullword ascii
       $s23 = "get_txtpassword" fullword ascii
+      $s24 = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*" fullword wide
+      $s25 = "get_chkboxpasswd" fullword ascii
+      $s26 = "TopdownDll" fullword wide
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
