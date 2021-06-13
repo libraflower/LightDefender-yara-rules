@@ -75,3 +75,76 @@ rule win_agent_tesla_w1 {
     condition:
         any of them
 }
+
+  
+rule AgentTesla
+{
+    meta:
+        author = "kevoreilly"
+        description = "AgentTesla Payload"
+        cape_type = "AgentTesla Payload"
+    strings:
+        $string1 = "smtp" wide
+        $string2 = "appdata" wide
+        $string3 = "76487-337-8429955-22614" wide
+        $string4 = "yyyy-MM-dd HH:mm:ss" wide
+        //$string5 = "%site_username%" wide
+        $string6 = "webpanel" wide
+        $string7 = "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" wide
+        $string8 = "<br>IP Address&nbsp;&nbsp;:" wide
+
+        $agt1 = "IELibrary.dll" ascii
+        $agt2 = "C:\\Users\\Admin\\Desktop\\IELibrary\\IELibrary\\obj\\Debug\\IELibrary.pdb" ascii
+        $agt3 = "GetSavedPasswords" ascii
+        $agt4 = "GetSavedCookies" ascii
+    condition:
+        uint16(0) == 0x5A4D and (all of ($string*) or 3 of ($agt*))
+}
+
+rule MALW_Agenttesla
+{
+    meta:
+        description = "Detecting HTML strings used by Agent Tesla malware"
+        author = "Stormshield"
+        reference = "https://thisissecurity.stormshield.com/2018/01/12/agent-tesla-campaign/"
+        version = "1.0"
+
+    strings:
+        $html_username    = "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " wide ascii
+        $html_pc_name     = "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " wide ascii
+        $html_os_name     = "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " wide ascii
+        $html_os_platform = "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " wide ascii
+        $html_clipboard   = "<br><span style=font-style:normal;text-decoration:none;text-transform:none;color:#FF0000;><strong>[clipboard]</strong></span>" wide ascii
+
+    condition:
+        3 of them
+}
+
+rule agenttesla_smtp_variant {
+
+    meta:
+        author = "J from THL <j@techhelplist.com> with thx to @Fumik0_ !!1!"
+        date = "2018/2"
+	reference1 = "https://www.virustotal.com/#/file/1198865bc928a7a4f7977aaa36af5a2b9d5a949328b89dd87c541758516ad417/detection"
+	reference2 = "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/tspy_negasteal.a"
+	reference3 = "Agent Tesla == negasteal -- @coldshell"
+	version = 1
+        maltype = "Stealer"
+        filetype = "memory"
+
+    strings:
+		$a = "type={"
+		$b = "hwid={"
+		$c = "time={"
+		$d = "pcname={"
+		$e = "logdata={"
+		$f = "screen={"
+		$g = "ipadd={"
+		$h = "webcam_link={"
+		$i = "screen_link={"
+		$j = "site_username={"
+		$k = "[passwords]"
+
+    condition:
+        6 of them
+}
