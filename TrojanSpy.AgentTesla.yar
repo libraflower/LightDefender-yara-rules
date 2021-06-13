@@ -295,13 +295,21 @@ rule spy_agenttesla2 {
       $s9 = "IELibrary.pdb" ascii
       $s10 = "_TargetSite" fullword ascii
       $s11 = "get_PasswordHash" ascii
+      $s12 = "GetSavedPasswords" ascii
+      $s13 = "set_passwordIsSet" fullword ascii
+      $s14 = "torbrowser"
+      $s15 = "1.85 (Hash, version 2, native byte-order)" wide
+      $s16 = "get_PLogin" fullword ascii
+      $s17 = "get_Clipboard" fullword ascii
+      $s18 = "46696C65416363657373" wide
+      $s19 = "RETURNCMD" fullword ascii
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
       $x2 = "#Blob" ascii
       $x3 = "Microsoft.VisualBasic" ascii
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and 6 of them) or ( all of them )
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and 7 of them) or ( all of them )
  }
 
 rule Agenttesla_telegram_bin
