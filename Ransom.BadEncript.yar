@@ -1,4 +1,4 @@
-rule Ransom.BadEncript {
+rule Ransom_BadEncript {
    meta:
       description = "BadEncript Ransomware"
       author = "LightDefender"
