@@ -1,4 +1,4 @@
-rule Ransom.Lucky {
+rule Ransom_Lucky {
    meta:
       description = "Lucky Ransomware"
       author = "LightDefender"
