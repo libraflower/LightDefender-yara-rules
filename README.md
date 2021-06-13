@@ -1,4 +1,4 @@
 # LightDefender-yara-rules
-yara rules by LightDefender
+Repository of yara rules
 
 Our website: https://bbs.skystars.top/
