@@ -1,6 +1,6 @@
-rule Ransom_Lucky {
+rule Ransom_Locky {
    meta:
-      description = "Lucky Ransomware"
+      description = "Locky Ransomware"
       author = "LightDefender"
       date = "2021-06-13"
       hash1 = "5606e9dc4ab113749953687adac6ddb7b19c864f6431bdcf0c5b0e2a98cca39e"
