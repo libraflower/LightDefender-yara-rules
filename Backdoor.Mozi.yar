@@ -9,6 +9,11 @@ rule Backdoor_Mozi {
       $s3 = {2D 72 20 2F 4D 6F 7A 69 2E 6D 3B}
       $s4 = {55 73 65 72 2D 41 67 65 6E 74 3A 20 48 65 6C 6C 6F 2C 20 77 6F 72 6C 64}
       $s5 = "loginok" fullword ascii
+      $s6 = "GET /Mozi.p HTTP/1.0" fullword ascii
+      $s7 = "GET /Mozi.l HTTP/1.0" fullword ascii
+      $s8 = "POST /ctrlt/DeviceUpgrade_1 HTTP/1.1" fullword ascii
+      $s9 = "GET /Mozi.r HTTP/1.0" fullword ascii
+      $s10 = "GET /Mozi.6 HTTP/1.0" fullword ascii
       $header = {7F 45 4C 46 01 01 01}
    condition:
       $header at 0 and filesize < 500KB and 2 of them
