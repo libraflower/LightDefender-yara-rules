@@ -57,3 +57,17 @@ rule ransom_JCrypt {
       uint16(0) == 0x5a4d and filesize < 500KB and
       (1 of ($x*) or 5 of them)
 }
+
+rule ransom_JCrypt2 {
+   meta:
+      description = "Ransom.JCrypt"
+      author = "LightDefender"
+      date = "2021-06-13"
+   strings:
+      $s1 = "\\___RECOVER__FILES__.jcrypt.txt" fullword wide
+      $s2 = "Your files (count: n) have been encrypted!" fullword wide
+      $s3 = "\\___RECOVER__FILES__.locked.txt" fullword wide
+   condition:
+      uint16(0) == 0x5a4d and filesize < 500KB and
+      1 of them
+}
