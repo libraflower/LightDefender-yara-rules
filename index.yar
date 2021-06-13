@@ -1,6 +1,7 @@
 include "./Adware.FileTour.yar"
 include "./Backdoor.Mozi.yar"
 include "./Backdoor.Nitol.yar"
+include "./Backdoor.PhantomNet.yar"
 include "./Malware.AntiSandbox.yar"
 include "./Ransom.BadEncript.yar"
 include "./Ransom.Cryakl.yar"
