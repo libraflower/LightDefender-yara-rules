@@ -303,3 +303,71 @@ rule spy_agenttesla2 {
    condition:
       ( uint16(0) == 0x5a4d and filesize < 2000KB and 6 of them) or ( all of them )
  }
+
+rule Agenttesla_telegram_bin
+
+{
+    meta:
+        author = "James_inthe_box"
+        reference = "https://app.any.run/tasks/b4ceef1e-a649-44b7-9e0c-e53c3ab05354"
+        date = "2020/08"
+        maltype = "RAT"
+
+    strings:
+        $stringset31 = "OperatingSystemName"
+        $stringset32 = "ProcessorName"
+        $stringset33 = "AmountOfMemory"
+        $stringset34 = "VideocardName"
+        $stringset35 = "VideocardMem"
+        $stringset36 = "Password"
+        $stringset37 = "Mozilla"
+        $stringset38 = "Postbox"
+        $stringset39 = "Thunderbird"
+        $stringset311 = "SeaMonkey"
+        $stringset312 = "Flock"
+        $stringset313 = "BlackHawk"
+        $stringset314 = "CyberFox"
+        $stringset315 = "KMeleon"
+        $stringset316 = "IceCat"
+        $stringset317 = "PaleMoon"
+        $stringset318 = "IceDragon"
+        $stringset319 = "WaterFox"
+        $stringset320 = "WinSCP"
+        $stringset321 = "api.telegram.org"
+    condition:
+        14 of ($stringset3*) and filesize < 800KB
+}
+
+rule AgentTesla_telegram_mem
+
+{
+    meta:
+        author = "James_inthe_box"
+        reference = "https://app.any.run/tasks/b4ceef1e-a649-44b7-9e0c-e53c3ab05354"
+        date = "2020/08"
+        maltype = "RAT"
+
+    strings:
+        $stringset31 = "OperatingSystemName"
+        $stringset32 = "ProcessorName"
+        $stringset33 = "AmountOfMemory"
+        $stringset34 = "VideocardName"
+        $stringset35 = "VideocardMem"
+        $stringset36 = "Password"
+        $stringset37 = "Mozilla"
+        $stringset38 = "Postbox"
+        $stringset39 = "Thunderbird"
+        $stringset311 = "SeaMonkey"
+        $stringset312 = "Flock"
+        $stringset313 = "BlackHawk"
+        $stringset314 = "CyberFox"
+        $stringset315 = "KMeleon"
+        $stringset316 = "IceCat"
+        $stringset317 = "PaleMoon"
+        $stringset318 = "IceDragon"
+        $stringset319 = "WaterFox"
+        $stringset320 = "WinSCP"
+        $stringset321 = "api.telegram.org"
+    condition:
+        14 of ($stringset3*) and filesize > 800KB
+}
