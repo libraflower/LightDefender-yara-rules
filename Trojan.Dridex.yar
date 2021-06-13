@@ -78,3 +78,8 @@ rule Win32_Trojan_Dridex : tc_detection malicious
             any of ($find_first_file_snippet_*)
         )
 }
+
+rule Dridex_imphashes {
+	condition:
+		pe.imphash() == "5594ced7851e7059f91664ceabe2c1e6" or pe.imphash() == "987b9d7dc84d935c3675da82d40e06f2"
+}
