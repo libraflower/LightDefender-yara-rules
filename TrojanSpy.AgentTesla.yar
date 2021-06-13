@@ -294,6 +294,7 @@ rule spy_agenttesla2 {
       $s8 = "set_SmtpAddress" fullword ascii
       $s9 = "IELibrary.pdb" ascii
       $s10 = "_TargetSite" fullword ascii
+      $s11 = "get_PasswordHash" ascii
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
