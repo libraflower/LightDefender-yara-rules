@@ -289,5 +289,5 @@ rule spy_agenttesla2 {
       $s3 = "get_User_Password" fullword ascii
       $s4 = "IsPasswordNull" fullword ascii
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and any of them ) or ( all of them )
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and 2 of them ) or ( all of them )
  }
