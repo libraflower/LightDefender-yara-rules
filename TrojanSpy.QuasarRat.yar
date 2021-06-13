@@ -29,3 +29,22 @@ rule spy_quasarrat {
       uint16(0) == 0x5a4d and filesize < 2000KB and
       1 of ($x*) and 4 of them
 }
+
+rule QuasarRat {
+   meta:
+      description = "QuasarRAT"
+      author = "LightDefender"
+      date = "2021-06-13"
+      hash1 = "ac14bf805d1796f1463b5f27b79496dab9a07f5bd50336628bcfbdc2dc996acf"
+      hash2 = "38038560199f5d1da23f83e933492a1f5e6c010b8289f6fdae2e1adbec839a12"
+      hash3 = "ba1a9d2896a18d3f95fb6fb7f94be8adcc60f76a7b5bb8b3c9401c5c64842843"
+   strings:
+      $s1 = "encryptedUsername" fullword ascii
+      $s2 = "hostname" fullword ascii /* Goodware String - occured 84 times */
+      $s3 = "Internet Explorer" fullword wide /* Goodware String - occured 518 times */
+      $s4 = "mozglue.dll" fullword wide /* Goodware String - occured 1 times */
+      $s5 = "nss3.dll" fullword wide /* Goodware String - occured 4 times */
+      $s6 = "encryptedPassword" fullword ascii /* Goodware String - occured 5 times */
+   condition:
+      uint16(0) == 0x5a4d and filesize < 2000KB and ( all of them )
+}
