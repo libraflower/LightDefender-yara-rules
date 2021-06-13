@@ -1,4 +1,4 @@
-rule Ransom.Cryakl {
+rule Ransom_Cryakl {
    meta:
       description = "Cryakl Ransomware"
       author = "LightDefender"
