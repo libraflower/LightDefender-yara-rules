@@ -303,13 +303,18 @@ rule spy_agenttesla2 {
       $s17 = "get_Clipboard" fullword ascii
       $s18 = "46696C65416363657373" wide
       $s19 = "RETURNCMD" fullword ascii
+      $s20 = "get_txtconfirm_passwd" fullword ascii
+      $s21 = "get_btnlogin" fullword ascii
+      $s22 = "_LogWarning" fullword ascii
+      $s23 = "get_txtpassword" fullword ascii
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
       $x2 = "#Blob" ascii
       $x3 = "Microsoft.VisualBasic" ascii
+      $x4 = "16.0.0.0" fullword ascii
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and 7 of them) or ( all of them )
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and 8 of them) or ( all of them )
  }
 
 rule Agenttesla_telegram_bin
