@@ -1,4 +1,4 @@
-rule Ransom.WannaDecryptor: WannaDecryptor
+rule Ransom_WannaDecryptor: WannaDecryptor
 {
         meta:
                 description = "Detection for common strings of WannaDecryptor"
