@@ -9,7 +9,6 @@ rule troj_KillWin {
       $x4 = "taskkill /f /im explorer.exe" fullword ascii
       $x6 = "cmd /k rd/s/q C:\\Windows\\explorer.exe" fullword ascii
       $x7 = "cmd /k del C:\\WINDOWS\\System32\\*.*/q" fullword ascii
-      $s8 = "C:\\Windows\\System32\\Taskmgr.exe" fullword ascii
       $s9 = "cmd /k del C:\\WINDOWS\\*.*/q" fullword ascii
       $s10 = "format.exe c: /q /x" fullword ascii
       $s12 = "format.exe d: /q /x" fullword ascii
@@ -137,5 +136,5 @@ rule troj_KillWin {
       $s149 = "SYSTEM\\CurrentControlSet\\Control\\SafeBoot\\Network\\{4D36E97B-E325-11CE-BFC1-08002BE10318}\\" fullword ascii
       $s150 = "SYSTEM\\CurrentControlSet\\Control\\SafeBoot\\Minimal\\{4D36E97B-E325-11CE-BFC1-08002BE10318}\\" fullword ascii
    condition:
-      uint16(0) == 0x5a4d and filesize < 3000KB and 3 of them
+      uint16(0) == 0x5a4d and filesize < 3000KB and (3 of ($x*) or 5 of ($s*))
 }
