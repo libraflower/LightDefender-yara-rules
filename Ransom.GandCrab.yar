@@ -1,4 +1,4 @@
-rule Ransomware.GandCrab {
+rule Ransomware_GandCrab {
    meta:
       description = "GandCrab Ransomware"
       author = "LightDefender"
