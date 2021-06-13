@@ -8,7 +8,7 @@ rule Ransom_Lucky {
    strings:
       $s1 = "gefas.pdb" fullword ascii
       $s2 = "ggqfslmb" fullword ascii
-      $s4 = "gr7shadtasghdj" fullword ascii
+      $s3 = "gr7shadtasghdj" fullword ascii
    condition:
       uint16(0) == 0x5a4d and filesize < 2000KB and 2 of them
 }
