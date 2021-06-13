@@ -1,5 +1,6 @@
 include "./Adware.FileTour.yar"
 include "./Backdoor.Mozi.yar"
+include "./Backdoor.NanoCore.yar"
 include "./Backdoor.Nitol.yar"
 include "./Backdoor.PhantomNet.yar"
 include "./Malware.AntiSandbox.yar"
