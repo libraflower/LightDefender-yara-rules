@@ -288,6 +288,17 @@ rule spy_agenttesla2 {
       $s2 = "get_username" fullword ascii
       $s3 = "get_User_Password" fullword ascii
       $s4 = "IsPasswordNull" fullword ascii
+      $s5 = "DecryptIePassword" ascii
+      $s6 = "SMTPAddress" fullword ascii
+      $s7 = " Twometer 2020 - 2021" fullword wide
+      $s8 = "set_SmtpAddress" fullword ascii
+      $s9 = "IELibrary.pdb" ascii
+      $s10 = "_TargetSite" fullword ascii
+      
+      $x0 = "#GUID" ascii
+      $x1 = "#Strings" ascii
+      $x2 = "#Blob" ascii
+      $x3 = "Microsoft.VisualBasic" ascii
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and 2 of them ) or ( all of them )
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and 2 of them and all of (x*)) or ( all of them )
  }
