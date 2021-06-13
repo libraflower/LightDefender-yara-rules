@@ -209,3 +209,70 @@ rule MALWARE_Win_AgentTeslaV3 {
     condition:
       (uint16(0) == 0x5a4d and (8 of ($s*) or (6 of ($*) and all of ($g*)))) or (2 of ($m*))
 }
+
+rule spy_agenttesla {
+   meta:
+      description = "TrojanSpy.AgentTesla"
+      author = "yarGen Rule Generator"
+      reference = "https://github.com/Neo23x0/yarGen"
+      date = "2021-05-17"
+      hash1 = "3dd0ab716a91895df7788197ba7527c9461432a1a35bdec48c6aabda435e0c43"
+      hash2 = "f51957a2b4ed970d1a437ca3143f490c13e6311a8f9caea88b4406404aa0fe63"
+      hash3 = "6d7571b2d3d4799ba199d0c56ae231b3b1078387ae1ecea2218171ae36fd4881"
+      hash4 = "cde7c4f503fc19bc115eed58a703ca6f729b1f4a017163dd36772b29f24351dd"
+   strings:
+      $s0 = "PublicEncryptionPassword" fullword ascii /* score: '20.00'*/
+      $s1 = "GetElapsedCompleteYearsFromDates" fullword ascii /* score: '17.00'*/
+      $s2 = "GetGuidTempFileName" fullword ascii /* score: '16.00'*/
+      $s3 = "get_subscription_type" fullword ascii /* score: '15.00'*/
+      $s4 = "ProcessFilename" fullword ascii /* score: '15.00'*/
+      $s5 = "GetAccountForEmailAddress" fullword ascii /* score: '15.00'*/
+      $s6 = "ProcessFolderName" fullword ascii /* score: '15.00'*/
+      $s7 = "FromStringToPreventSQLInjection" fullword ascii /* score: '14.00'*/
+      $s8 = "GetLogEntryTypeName" fullword ascii /* score: '14.00'*/
+      $s9 = "DataReaderGetIntegerSafeAsNull" fullword ascii /* score: '12.00'*/
+      $s10 = "DataReaderGetString" fullword ascii /* score: '12.00'*/
+      $s11 = "DataReaderGetBooleanSafeAsNull" fullword ascii /* score: '12.00'*/
+      $s12 = "DataReaderGetLong" fullword ascii /* score: '12.00'*/
+      $s13 = "DataReaderGetShortSafeAsNull" fullword ascii /* score: '12.00'*/
+      $s14 = "DataReaderGetIntegerSafeAsMinValue" fullword ascii /* score: '12.00'*/
+      $s15 = "DataReaderGetStringSafeAsNull" fullword ascii /* score: '12.00'*/
+      $s16 = "SMTPAddress" fullword ascii /* score: '12.00'*/
+      $s17 = "DataReaderGetShort" fullword ascii /* score: '12.00'*/
+      $s18 = "DataReaderGetDateTime" fullword ascii /* score: '12.00'*/
+      $s19 = "set_SmtpAddress" fullword ascii /* score: '12.00'*/
+      $s20 = "DataReaderGetByte" fullword ascii /* score: '12.00'*/
+      $s21 = "_SmtpAddress" fullword ascii /* score: '12.00'*/
+      $s22 = "46696C65416363657373" wide /* hex encoded string 'FileAccess' */
+      $s23 = "GetNeighbourAt" fullword ascii /* score: '14.00'*/
+      $s24 = "GetAccountForEmailAddress" fullword ascii /* score: '15.00'*/
+      $s25 = "ProcessFolderName" fullword ascii /* score: '15.00'*/
+      $s26 = "494D65737361676553696E6B" wide /* score: '17.00'*/ /* hex encoded string 'IMessageSink' */
+      $s27 = "_targetFormat" fullword ascii /* score: '14.00'*/
+      $s28 = "get_PLogin" fullword ascii /* score: '17.00'*/
+      $s29 = "Failed to get the desktop shell folder" fullword wide /* score: '20.00'*/
+      $s30 = " Twometer 2020 - 2021" fullword wide /* score: '12.00'*/
+      $s31 = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*" fullword wide /* score: '11.00'*/
+      $s32 = "OWNERDRAW" fullword ascii /* base64 encoded string '9cDD4@' */ /* score: '16.50'*/
+      $s33 = "RETURNCMD" fullword ascii /* score: '9.50'*/
+      $s34 = "get_Download" fullword ascii /* score: '15.00'*/
+      $s35 = "User_Password" fullword ascii /* score: '12.00'*/
+      $s36 = "_TargetSite" fullword ascii /* score: '14.00'*/
+      $s37 = "IELibrary.pdb"
+      $s38 = "Download_Click" fullword ascii /* score: '10.00'*/
+      $s39 = "                taskkill /f /im explorer.exe" fullword ascii /* score: '26.00'*/
+      $s40 = "%HOMEDRIVE%\\Users\\Default\\AppData\\Local\\Microsoft\\Windows\\WinX" fullword wide /* score: '25.00'*/
+
+      $op0 = { 01 ff 02 ff 7f 04 ff ff ff 7f 01 fe 02 fe 7f 04 }
+      $op1 = { 01 00 34 35 00 1c 2d 00 00 01 1b 30 03 00 56 }
+      $op2 = { 02 1d 6f 33 01 00 0a 13 08 12 08 28 34 01 00 0a }
+      $op3 = { fe 01 13 34 11 34 2c 07 1f 61 13 0a 00 2b 06 00 }
+      $op4 = { 16 08 be 09 bf 0e 02 00 34 22 }
+      $op5 = { 11 18 b8 2f 0a 09 03 00 34 28 }
+      $op6 = { 16 2a 02 15 7d 01 00 00 04 02 20 5d f9 34 53 7d }
+      $op7 = { 2b 00 00 11 02 7b 34 00 00 04 0a 06 2a }
+      $op8 = { 04 00 00 11 03 02 7b 34 00 00 04 28 d1 00 00 0a }
+   condition:
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and ( 8 of them ) and 3 of ($op*)
+      ) or ( all of them )
+}
