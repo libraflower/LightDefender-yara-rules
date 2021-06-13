@@ -1,3 +1,4 @@
+import "pe"
 rule Win32_Trojan_Dridex : tc_detection malicious
 {
     meta:
