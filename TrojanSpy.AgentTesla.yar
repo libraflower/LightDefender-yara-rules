@@ -276,3 +276,18 @@ rule spy_agenttesla {
       ( uint16(0) == 0x5a4d and filesize < 2000KB and ( 8 of them ) and 3 of ($op*)
       ) or ( all of them )
 }
+
+rule spy_agenttesla2 {
+   meta:
+      description = "TrojanSpy.AgentTesla"
+      author = "LightDefender"
+      date = "2021-06-13"
+   strings:
+      $s0 = "set_passwordIsSet" fullword ascii
+      $s1 = "PublicEncryptionPassword" fullword ascii
+      $s2 = "get_username" fullword ascii
+      $s3 = "get_User_Password" fullword ascii
+      $s4 = "IsPasswordNull" fullword ascii
+   condition:
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and any of them ) or ( all of them )
+ }
