@@ -273,7 +273,7 @@ rule spy_agenttesla {
       $op7 = { 2b 00 00 11 02 7b 34 00 00 04 0a 06 2a }
       $op8 = { 04 00 00 11 03 02 7b 34 00 00 04 28 d1 00 00 0a }
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and ( 8 of them ) and 3 of ($op*)
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and ( 16 of them ) and 3 of ($op*)
       ) or ( all of them )
 }
 
@@ -300,5 +300,5 @@ rule spy_agenttesla2 {
       $x2 = "#Blob" ascii
       $x3 = "Microsoft.VisualBasic" ascii
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and 2 of them and all of (x*)) or ( all of them )
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and 6 of them) or ( all of them )
  }
