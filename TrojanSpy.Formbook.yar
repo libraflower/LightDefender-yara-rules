@@ -140,3 +140,43 @@ rule Formbook
     condition:
         ($remap_ntdll)
 }
+
+rule spy_formbook_june_15 {
+   meta:
+      description = "TrojanSpy.Formbook"
+      author = "LightDefender"
+      date = "2021-06-15"
+   strings:
+      $s1 = "ftpPassword" fullword ascii
+      $s2 = "ftpUsername" fullword ascii
+      $s3 = "ftpServer" fullword ascii
+      $s4 = "ssPassword" fullword ascii
+      $s5 = "btnFTPUpload" fullword ascii
+      $s6 = "flickrauthtoken" fullword ascii
+      $s7 = "flickruser" fullword ascii
+      $s8 = "clipboardData4" fullword ascii
+      $s9 = "clipboardData3" fullword ascii
+      $s10 = "clipboardData2" fullword ascii
+      $s11 = "clipboardData1" fullword ascii
+      $s12 = "clipboardData0" fullword ascii
+      $s13 = "ClipboardManager.Properties" fullword ascii
+      $s14 = "ssUpload" fullword ascii
+      $s15 = "Uploading" fullword wide
+      $s16 = "noscrnshots" fullword wide
+      $s17 = "Clipboard Memorizer is already running." fullword wide
+      $s18 = "Screen Info" fullword wide
+      $s19 = "Adam Lamers" fullword wide
+      $s20 = "<Password></Password>" fullword wide
+      $s21 = "Created By Adam Lamers 2009" fullword wide
+      $s22 = {00 00 28 34 00 00 0A 0A 12 01 FE 15 1F 00 00 01}
+      $s23 = {00 02 7B 79 00 00 04 04 6F F3 00 00 0A 6F F4 00}
+      $s24 = {00 02 7B 29 00 00 04 02 7B 2D 00 00 04 6F 84 00}
+      
+      $x0 = "#GUID" ascii
+      $x1 = "#Strings" ascii
+      $x2 = "#Blob" ascii
+      $x3 = "Microsoft.VisualBasic" ascii
+      $x4 = "16.0.0.0" fullword ascii
+   condition:
+      ( uint16(0) == 0x5a4d and filesize < 2000KB and 7 of them) or ( all of them )
+ }
