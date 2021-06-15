@@ -13,7 +13,7 @@ rule ransom_JCrypt {
       $s5 = "friendly.cyber.criminal@gmail.com" fullword wide
       $s6 = "Afterwards, please email your transaction ID to: danielthai101514@gmail.com" fullword wide
       $s7 = "danielthai101514@gmail.com" fullword wide
-      $s8 = "ENCRYPT_PASSWORD" fullword asci
+      $s8 = "ENCRYPT_PASSWORD" fullword ascii
       $s10 = "encryptFolderContents" fullword ascii
       $s11 = "formatFormPostEncryption" fullword ascii
       $s12 = "ENCRYPTION_LOG" fullword ascii
