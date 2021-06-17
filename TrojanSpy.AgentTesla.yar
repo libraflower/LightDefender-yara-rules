@@ -320,6 +320,7 @@ rule spy_agenttesla2 {
       $s34 = "get_kbok" fullword ascii
       $s35 = "set_kbok" fullword ascii
       $s36 = "G[Ccretk"
+      $s37 = "Millimetres" fullword ascii
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
@@ -397,3 +398,14 @@ rule AgentTesla_telegram_mem
     condition:
         14 of ($stringset3*) and filesize > 800KB
 }
+
+rule AgentTesla_June_17 {
+   meta:
+      description = "TrojanSpy.AgentTesla"
+      author = "LightDefender"
+      date = "2021-06-17"
+   strings:
+      $op1 = {8B45FF637D33FF696F21FFD76F11FFD46D11FF000000002FE49FFF2FE19B}
+   condition:
+      uint16(0) == 0x5a4d and filesize > 600KB and all of them
+ }
