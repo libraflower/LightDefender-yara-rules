@@ -16,6 +16,45 @@ rule Ransom_Cryakl {
       3 of them
 }
 
+rule CryLock
+{
+meta:
+	description = "Identifies CryLock aka Cryakl ransomware."
+	author = "@bartblaze"
+	date = "2020-09"
+	tlp = "White"
+	
+strings:
+	$ = "///END ENCRYPT ONLY EXTENATIONS" ascii wide
+	$ = "///END UNENCRYPT EXTENATIONS" ascii wide
+	$ = "///END COMMANDS LIST" ascii wide
+	$ = "///END PROCESSES KILL LIST" ascii wide
+	$ = "///END SERVICES STOP LIST" ascii wide
+	$ = "///END PROCESSES WHITE LIST" ascii wide
+	$ = "///END UNENCRYPT FILES LIST" ascii wide
+	$ = "///END UNENCRYPT FOLDERS LIST" ascii wide
+	$ = "{ENCRYPTENDED}" ascii wide
+	$ = "{ENCRYPTSTART}" ascii wide
+
+condition:
+	2 of them
+}
+
+rule Ransom_Cryakl_Opcodes {
+   meta:
+      description = "Ransom.Cryakl"
+      author = "LightDefender"
+      date = "2021-06-17"
+   strings:
+      $s1 = {558BEC83C4F85356578BD8803DC09547}
+      $s2 = {555756535052546A076A0168DEFAED0E}
+      $s3 = {8B45FC5F5E5B59595DC38D4000558BEC}
+      $s4 = {4681FE000010007E05BE00001000DF6D}
+      $s5 = {C1EE028B3CB34E5779F9896510894DFC}
+   condition:
+      uint16(0) == 0x5a4d and 4 of them
+ }
+
 rule win_cryakl_auto {
 
     meta:
