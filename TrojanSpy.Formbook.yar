@@ -171,6 +171,12 @@ rule spy_formbook_june_15 {
       $s22 = {00 00 28 34 00 00 0A 0A 12 01 FE 15 1F 00 00 01}
       $s23 = {00 02 7B 79 00 00 04 04 6F F3 00 00 0A 6F F4 00}
       $s24 = {00 02 7B 29 00 00 04 02 7B 2D 00 00 04 6F 84 00}
+      $s25 = "There was an error connecting to the spread server - cannot update the gauge. Check your connection to the network and retry"
+      $s26 = "Could not find a spreadometer.  Check it is connected properly and click retry to scan again."
+      $s27 = "valuation_model_definition_template"
+      $s28 = "https://github.com/Laicure/HostsY"
+      $s29 = "f3platform/api/v1/selector/"
+      $s30 = "DFEA2964B5DEEDEA7B1EF077DE529C3959E6788BDBB3441E70C77A1AE875BB48"
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
