@@ -321,6 +321,21 @@ rule spy_agenttesla2 {
       $s35 = "set_kbok" fullword ascii
       $s36 = "G[Ccretk"
       $s37 = "Millimetres" fullword ascii
+      $s38 = "MediaDatabaseFile" fullword ascii
+      $s39 = "_MediaDatabaseFile" fullword ascii
+      $s40 = "NonKeyATBL_Click" fullword ascii
+      $s41 = "FindDockStyle" fullword ascii
+      $s42 = "FormMainSize" fullword ascii
+      $s43 = "ShowQuitWarning" fullword ascii
+      $s44 = "FormMainWindowState" fullword ascii
+      $s45 = "FindFieldAllPlaceholder" fullword ascii
+      $s46 = "get_RestrictedError" fullword ascii
+      $s47 = "eOIDAT3" fullword ascii
+      $s48 = "Y*|^<R,H" fullword ascii
+      $s49 = "_EcMhO" fullword ascii
+      $s50 = "&;3(lZ" fullword ascii
+      $s51 = "6Y)>Ft{" fullword ascii
+      $s52 = "s\\C~B)(" fullword ascii
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
