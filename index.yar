@@ -1,4 +1,5 @@
 include "./Adware.FileTour.yar"
+include "./Backdoor.Hupigon.yar"
 include "./Backdoor.Meterpreter.yar"
 include "./Backdoor.Mozi.yar"
 include "./Backdoor.NanoCore.yar"
