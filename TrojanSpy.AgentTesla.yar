@@ -312,7 +312,7 @@ rule spy_agenttesla2 {
       $s26 = "TopdownDll" fullword wide
       $s27 = "Xdcasawldtui.Ijtpmedhjhq.dll"
       $s28 = "Id: {0}, Name: {1}"
-      $s29 = "##K'#ES-"JI*|E"
+      $s29 = "##K'#ES-\"JI*|E"
       $s30 = "Suresh Dasari"
       $s31 = "set_avatarType" fullword ascii
       $s32 = "set_signaturePresets" fullword ascii
