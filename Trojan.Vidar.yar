@@ -189,3 +189,22 @@ rule MALWARE_Win_Vidar {
     condition:
         uint16(0) == 0x5a4d and all of them
 }
+
+rule Trojan_Vidar {
+    meta:
+        author = "LightDefender"
+        description = "Detects Vidar"
+    strings:
+        $s1 = "C:\\Users\\Administrator\\Desktop\\Client\\Temp\\CBaQRjXFcr\\src\\obj\\Debug\\RoleClaimProvider.pdb" fullword ascii
+        $s2 = "http://deavmi.github.io/Clippy/changelog.txt"
+        $s3 = "https://deavmi.github.io/Clippy/current_version.txt"
+        $s4 = "cmd.exe /c ipconfig -flushdns"
+        $s5 = "chkHideClippyOnStartup"
+        $s6 = "$4baf06e8-0c6b-47a4-af62-e013ec4a7555"
+        $s7 = "333K333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333x333K"
+        $s8 = "set_ClearClipboardToolStripMenuItem"
+        $s9 = "An awesome clipboard manager"
+        $s10 = "2013-07-19T03:32:47-05:00"
+    condition:
+        uint16(0) == 0x5a4d and (3 of them)
+}
