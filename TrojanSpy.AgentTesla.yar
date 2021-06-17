@@ -310,6 +310,16 @@ rule spy_agenttesla2 {
       $s24 = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*" fullword wide
       $s25 = "get_chkboxpasswd" fullword ascii
       $s26 = "TopdownDll" fullword wide
+      $s27 = "Xdcasawldtui.Ijtpmedhjhq.dll"
+      $s28 = "Id: {0}, Name: {1}"
+      $s29 = "##K'#ES-"JI*|E"
+      $s30 = "Suresh Dasari"
+      $s31 = "set_avatarType" fullword ascii
+      $s32 = "set_signaturePresets" fullword ascii
+      $s33 = "get_CHoo" fullword ascii
+      $s34 = "get_kbok" fullword ascii
+      $s35 = "set_kbok" fullword ascii
+      $s36 = "G[Ccretk"
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
