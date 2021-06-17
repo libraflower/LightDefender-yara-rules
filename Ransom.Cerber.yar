@@ -156,3 +156,15 @@ rule win_cerber_auto {
     condition:
         7 of them and filesize < 573440
 }
+
+rule Ransom_Cerber {
+   meta:
+      description = "Ransom.Cerber"
+      author = "LightDefender"
+      date = "2021-06-17"
+   strings:
+      $s0 = {558BEC83EC0C8B45088945FC8B4D0C89}
+      $s1 = {8B45AB2603A9D1CBF8490724599ADA8F}
+   condition:
+      all of them
+ }
