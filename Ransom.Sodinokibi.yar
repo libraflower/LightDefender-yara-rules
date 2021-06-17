@@ -1,3 +1,4 @@
+import "pe"
 rule Sodinokibi_Loader{
 
     meta:
@@ -49,8 +50,6 @@ rule Sodinokibi_Loader{
 	uint16(0) == 0x5a4d and 30 of ($string*)
 
 }
-
-import "pe"
 
 rule ransomware_sodinokibi {
    meta:
@@ -250,6 +249,26 @@ rule MAL_RANSOM_REvil_Oct20_1 {
       $op3 = { 89 4d f4 8b 4e 0c 33 4e 34 33 4e 5c 33 8e 84 }
       $op4 = { 8d 85 68 ff ff ff 50 e8 05 06 00 00 8d 85 68 ff }
       $op5 = { 8d 85 68 ff ff ff 56 57 ff 75 0c 50 e8 2f }
+   condition:
+      uint16(0) == 0x5a4d and
+      filesize < 400KB and
+      2 of them or 4 of them
+}
+
+rule Ransom_Sodinokibi {
+   meta:
+      description = "Ransom.Sodinokibi"
+      author = "LightDefender"
+      date = "2021-6-17"
+   strings:
+      $s1 = "2!2&2>2K2R2Z2_2d2i2"
+      $s2 = "ERR0R D0UBLE RUN!"
+      $s3 = "4!5&575?5R5Z5~5"
+      $s4 = "344<4E4Z4f4p4x4"
+      $s5 = "?%?+?1?7?=?K?_?"
+      $s6 = "DTrump4ever"
+      $s7 = "3N,3NT3N|3"
+      $op1 = {55 8B EC 83 EC 10 B9 B5 04 00 00 53 56 8B 75 08 C1 E6 10 33 75 08 81 F6 CD 8E CD 99 8B C6 C1 E8 15 57 3B C1}
    condition:
       uint16(0) == 0x5a4d and
       filesize < 400KB and
