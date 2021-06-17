@@ -166,5 +166,5 @@ rule Ransom_Cerber {
       $s0 = {558BEC83EC0C8B45088945FC8B4D0C89}
       $s1 = {8B45AB2603A9D1CBF8490724599ADA8F}
    condition:
-      all of them
+      uint16(0) == 0x5a4d and all of them
  }
