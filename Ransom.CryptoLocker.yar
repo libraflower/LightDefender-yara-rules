@@ -9,3 +9,14 @@ rule Ransom_CryptoLocker {
    condition:
       uint16(0) == 0x5a4d and all of them
  }
+
+rule Ransom_Cryptolocker_2 {
+   meta:
+      description = "Ransom.CryptLocker"
+      author = "LightDefender"
+      date = "2021-06-17"
+   strings:
+      $s1 = {8B454821E8306DCFFF63804528050000}
+   condition:
+      uint16(0) == 0x5a4d and all of them
+ }
