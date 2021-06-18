@@ -224,3 +224,18 @@ rule nemty_ransomware_2_6 {
       filesize < 1500KB and
       $pattern
 }
+
+rule MANSORY_ransomware {
+   meta:
+      description = "Rule to detect Mansory Ransomware"
+      author = "LightDefender"
+      date = "2021-6-18"
+
+   strings:
+      $s1 = "main.CTREncrypt" fullword ascii
+      $s2 = "main.GenerateRandomBytes" fullword ascii
+      $s3 = "idle: .MANSORY" ascii
+
+   condition:
+      uint16(0) == 0x5a4d and filesize < 400KB and 2 of them
+}
