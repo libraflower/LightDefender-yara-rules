@@ -88,6 +88,15 @@ rule Ransom_TeslaCrypt {
       5 of them
 }
 
+rule Win_Ransomware_Teslacrypt_21
+{
+    strings:
+			$a0 = { 4f6e6520646179206166746572[0-20]474f5020686f706566756c20616674657220527562696f2064726f7073 }
+
+    condition:
+        all of them
+}
+
 rule Ransom_TeslaCrypt_2 {
    meta:
       description = "Ransomware.TeslaCrypt"
