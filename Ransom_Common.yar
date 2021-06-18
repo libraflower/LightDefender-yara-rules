@@ -56,6 +56,7 @@ rule Win_Trojan_Ransom_Common
       $ = { 740068006900730020006900730020006E006F00740020006100200058006F0072006900730074002000760061007200690061006E0074 }
       $ = "main.CTREncrypt" fullword ascii
       $ = "main.GenerateRandomBytes" fullword ascii
+      $ = "idle: .MANSORY" ascii
 
     condition:
         any of them
