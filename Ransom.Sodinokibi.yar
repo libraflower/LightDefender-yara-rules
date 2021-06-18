@@ -278,3 +278,22 @@ rule Ransom_Sodinokibi {
       filesize < 400KB and
       2 of them or 4 of them
 }
+
+rule Ransom_Sodinokibi_2021_June {
+   meta:
+      description = "Ransom.Sodinokibi"
+      author = "LightDefender"
+      date = "2021-6-18"
+   strings:
+      $s1 = "ERR0R D0UBLE RUN!" fullword ascii
+      $s2 = "DTrump4ever" fullword ascii
+      $op3 = {558BEC83EC30568D45FCBE78124100506A036A10685B12000056E8375200}
+      $op4 = {8B45088B4008A3D435410033C0405DC3558BEC8B45088B4008A3B4354100}
+      $op5 = {558BEC5153568D45FC33F650E84E4000008BD85985DB74315733FF47397D}
+      $op6 = {558BEC83EC0C894DF48B4DF4E80F0000008BE55DC3CCCCCCCCCCCCCCCCCC}
+      $op7 = {8B45FCC700707543008B4DFCE8980800008BE55DC3CCCCCCCC558BEC5189}
+      $op8 = {558BEC6AFF687867430064A100000000506489250000000083EC24894DD0}
+      $op9 = {558BEC51894DFC8B45FCC700707543008B4DFCE8980800008BE55DC3CCCC}
+   condition:
+      uint16(0) == 0x5a4d and filesize < 400KB and (2 of ($s*) or 2 of ($op*))
+}
