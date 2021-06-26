@@ -19,6 +19,8 @@ rule Backdoor_VenomRAT {
       $s11 = "D:\\CreateVenomUser\\obj\\Release\\Create.pdb" fullword ascii
       $s12 = "C:\\windows\\system32\\fodhelper.exe" fullword wide
       $s13 = "c:\\windows\\system32\\cmstp.exe" fullword wide
+      $s14 = {5B 00 61 00 75 00 74 00 6F 00 72 00 75 00 6E 00 5D 00 00 1D 6F 00 70 00 65 00 6E 00 3D 00 73 00 74 00 61 00 72 00 74 00 2E 00 65 00 78 00 65 00} // autorun.inf
+      $s15 = {53 74 61 72 74 4D 69 6E 65 72 28 29 3B}
    condition:
       uint16(0) == 0x5a4d and filesize < 4000KB and 2 of them
 }
