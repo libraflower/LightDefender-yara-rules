@@ -28,7 +28,7 @@ rule Ransom_ChupaCabra {
       $x1 = "bitcoin_keshel" fullword ascii
       $x2 = "Stealer_version" fullword ascii
       $x3 = "_Encrypted$" fullword wide
-	  $x4 = "All your files are encrypted with ChupaCabra:"
+      $x4 = "All your files are encrypted with ChupaCabra:"
    condition:
       ( uint16(0) == 0x5a4d and filesize < 700KB and (( 5 of them ) or (any of ($x*)))
       ) or ( all of them )
