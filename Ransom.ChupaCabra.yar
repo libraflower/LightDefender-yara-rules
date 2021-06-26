@@ -1,4 +1,4 @@
-rule ransom_chupacabra {
+rule Ransom_ChupaCabra {
    meta:
       description = "Ransom.ChupaCabra"
       author = "LightDefender"
@@ -6,6 +6,7 @@ rule ransom_chupacabra {
       date = "2021-06-15"
       hash1 = "213d6a4c5a5c0045550fa2b822434c51dfd1b6f573c1d1bf22d9eda4f7ab2259"
       hash2 = "ce900eefb44f7e49b9c17f35caeed82d0766b71c715b89a60346c0ae19d5df78"
+	  hash3 = "7feeee667beb4d3b5f33611dc8a2735a1b23b9c7b11fa7b71ce33ea865b6c785"
    strings:
       $s1 = "PasswordEncrypt" fullword ascii
       $s2 = "IMPORTANT INFORMATION!!!!" fullword wide
@@ -24,9 +25,11 @@ rule ransom_chupacabra {
       $s15 = "uAction" fullword ascii
       $s16 = "RansomwareCrypt" fullword ascii
       $s17 = "v.2.0 Reload" fullword wide
-      $s18 = "4326443888886662222" wide
+      $x1 = "bitcoin_keshel" fullword ascii
+      $x2 = "Stealer_version" fullword ascii
+      $x3 = "_Encrypted$" fullword wide
+	  $x4 = "All your files are encrypted with ChupaCabra:"
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 700KB and ( 5 of them )
+      ( uint16(0) == 0x5a4d and filesize < 700KB and (( 5 of them ) or (any of ($x*)))
       ) or ( all of them )
 }
-
