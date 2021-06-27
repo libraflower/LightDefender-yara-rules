@@ -3,6 +3,7 @@ rule Ransom_Babuk {
       description = "Ransom.Babuk"
       author = "LightDefender"
       date = "2021-06-27"
+      hash1 = "5eb21c59b6a0df15be307fc5ef82464f3d9a56dff8f4214576c48dbc9d3fe7af"
    strings:
       $mutex = "DoYouWantToHaveSexWithCuongDong" fullword ascii
       $mutex_api1 = "OpenMutexA" fullword ascii
