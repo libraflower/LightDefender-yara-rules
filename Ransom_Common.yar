@@ -56,7 +56,8 @@ rule Win_Trojan_Ransom_Common
       $ = { 740068006900730020006900730020006E006F00740020006100200058006F0072006900730074002000760061007200690061006E0074 }
       $ = "vssadmin.exe delete shadows /all /quiet" nocase
       $ = "vssadmin delete shadows /all /quiet" nocase
-      $ = "files have been encrypted"
+      $ = "files have been encrypted" nocase
+      $ = "Files has been encrypted" nocase
       $ = "You cannot recover them without paying us some money."
       $ = "The price for the recovery software is "
       $ = "<h3>How to Pay</h3><p>Send"
