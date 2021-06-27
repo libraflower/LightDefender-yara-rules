@@ -146,3 +146,19 @@ rule MALWARE_Win_STOP {
     condition:
         uint16(0) == 0x5a4d and ((2 of ($x*) and 1 of ($mutex*)) or (all of ($x*)) or (6 of ($s*) and (1 of ($x*) or 1 of ($mutex*))) or (9 of them))
 }
+
+rule Ransom_Stop {
+   meta:
+      description = "Ransom.Stop"
+      author = "LightDefender"
+      date = "2021-06-27"
+   strings:
+      $s1 = "Zopeheci nol wubipanur vatesADiwidadepuzixem"
+      $s2 = "%Tacexozemiyusij juxoyoyos jiwicefojulIHebecawadoxa"
+      $s3 = "QWamem mutumog wenaze tayifetebuz yorelij ripif lezivemizan"
+      $s4 = "vunafula.exe"
+      $s5 = "zatir.exe"
+      $s6 = "E:\\Doc\\My work (C++)\\_Git\\Encryption\\Release\\encrypt_win_api.pdb"
+   condition:
+      uint16(0) == 0x5a4d and any of them
+}
