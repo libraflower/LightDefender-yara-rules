@@ -61,5 +61,5 @@ rule Win_Trojan_Ransom_Common
       $ = "The price for the recovery software is "
       $ = "<h3>How to Pay</h3><p>Send"
     condition:
-        any of them
+        uint16(0) == 0x5a4d and any of them
 }
