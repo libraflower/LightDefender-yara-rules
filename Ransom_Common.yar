@@ -1,3 +1,4 @@
+import "pe"
 rule Win_Trojan_Ransom_Common
 {
     strings:
@@ -63,4 +64,34 @@ rule Win_Trojan_Ransom_Common
       $ = "<h3>How to Pay</h3><p>Send"
     condition:
         uint16(0) == 0x5a4d and any of them
+}
+
+rule Win_MSIL_Ransom
+{
+    meta:
+        author = "LightDefender"
+        date = "2021-06-28"
+    strings:
+        $a1 = "RijndaelManaged" ascii
+        $a2 = "GetDirectories" ascii
+        $a3 = "password" ascii
+        $a4 = "System.IO" ascii
+        $a5 = "GetFiles" ascii
+        $a6 = "System.Security.Cryptography" fullword ascii
+        $b3 = "encryptDirectory" ascii
+        $b4 = "files have been encrypted" nocase
+        $b5 = "files has been encrypted" nocase
+        $b6 = "EncryptFile" ascii
+        $c1 = ".doc" fullword
+        $c2 = ".docx" fullword
+        $c3 = ".xls" fullword
+        $c4 = ".xlsx" fullword
+        $c5 = ".ppt" fullword
+        $c6 = ".pptx" fullword
+        $c7 = ".html" fullword
+        $d1 = "Windows" fullword
+        $d2 = "Program Files (x86)" fullword
+        $d3 = "GetExtension" fullword
+    condition:
+        uint16(0) == 0x5a4d and (all of ($a*) or any of ($b*) or (all of ($c*) and 3 of ($a*)) or (all of ($d*) and 3 of ($a*))) and pe.imphash() == "f34d5f2d4577ed6d9ceec516c1f5a744"
 }
