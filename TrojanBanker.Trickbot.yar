@@ -1,3 +1,14 @@
+rule TrojanBanker_Trickbot {
+   meta:
+      description = "TrojanBanker.Trickbot"
+      author = "LightDefender"
+      date = "2021-06-29"
+   strings:
+      $s1 = {00 89 6C 24 28 89 44 24 20 66 8B 18 8B 54 24 24 81 E3 FF FF 00 00 8B 3C 9A 85 FF 0F 84 A2 01 00 00}
+   condition:
+      uint16(0) == 0x5a4d and any of them
+ }
+ 
 rule win_trickbot_auto {
 
     meta:
