@@ -330,12 +330,6 @@ rule spy_agenttesla2 {
       $s44 = "FormMainWindowState" fullword ascii
       $s45 = "FindFieldAllPlaceholder" fullword ascii
       $s46 = "get_RestrictedError" fullword ascii
-      $s47 = "eOIDAT3" fullword ascii
-      $s48 = "Y*|^<R,H" fullword ascii
-      $s49 = "_EcMhO" fullword ascii
-      $s50 = "&;3(lZ" fullword ascii
-      $s51 = "6Y)>Ft{" fullword ascii
-      $s52 = "s\\C~B)(" fullword ascii
       
       $x0 = "#GUID" ascii
       $x1 = "#Strings" ascii
