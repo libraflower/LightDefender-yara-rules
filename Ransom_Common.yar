@@ -62,6 +62,7 @@ rule Win_Trojan_Ransom_Common
       $ = "You cannot recover them without paying us some money."
       $ = "The price for the recovery software is "
       $ = "<h3>How to Pay</h3><p>Send"
+      $ = "bcdedit /set {default} recoveryenabled no"
     condition:
         uint16(0) == 0x5a4d and any of them
 }
