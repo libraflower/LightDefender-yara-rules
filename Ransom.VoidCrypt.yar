@@ -1,6 +1,6 @@
-rule Ransom_Ouroboros {
+rule Ransom_VoidCrypt {
    meta:
-      description = "Ransom.Ouroboros"
+      description = "Ransom.VoidCrypt"
       author = "LightDefender"
       date = "2021-06-30"
    strings:
