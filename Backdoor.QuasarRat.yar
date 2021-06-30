@@ -30,7 +30,7 @@ rule QuasarRAT {
       1 of ($x*) and 4 of them
 }
 
-rule QuasarRat {
+rule QuasarRat2 {
    meta:
       description = "QuasarRAT"
       author = "LightDefender"
