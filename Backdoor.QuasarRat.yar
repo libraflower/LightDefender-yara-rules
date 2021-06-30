@@ -1,4 +1,4 @@
-rule spy_quasarrat {
+rule QuasarRAT {
    meta:
       description = "QuasarRat"
       author = "LightDefender"
