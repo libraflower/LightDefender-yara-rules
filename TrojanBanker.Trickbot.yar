@@ -4,7 +4,9 @@ rule TrojanBanker_Trickbot {
       author = "LightDefender"
       date = "2021-06-29"
    strings:
-      $s1 = {00 89 6C 24 28 89 44 24 20 66 8B 18 8B 54 24 24 81 E3 FF FF 00 00 8B 3C 9A 85 FF 0F 84 A2 01 00 00}
+      $op1 = {00 89 6C 24 28 89 44 24 20 66 8B 18 8B 54 24 24 81 E3 FF FF 00 00 8B 3C 9A 85 FF 0F 84 A2 01 00 00}
+      $op2 = {55 53 57 56 83 EC 20 A1 48 E0 06 10 8B 3D 3C E0 06 10 8B 2D 40 E0 06 10 8D 48 FF 0F AF C8 F6 C1 01 0F 94 C0 83 3D 44 E0 06 10 0A 0F 9C C3 08 C3 80 FB 01 75 22 8D 77 FF 0F AF F7 83 E6 01 83 FD 0A 7C 04 85 F6 75 22 FF 74 24 34 E8 5C FC FF FF 83 C4 04 84 DB 75 14 83 FD 0A 7C D9 8D 47 FF 0F AF C7 83 E0 01 74 CE}
+      $op3 = {8D 5E FF 0F AF DE 83 E3 01 83 FF 0A 7C 04}
    condition:
       uint16(0) == 0x5a4d and any of them
  }
