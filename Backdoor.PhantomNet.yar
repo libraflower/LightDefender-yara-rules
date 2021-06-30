@@ -6,8 +6,11 @@ rule PhantomNet {
       hash1 = "603881f4c80e9910ab22f39717e8b296910bff08cd0f25f78d5bff1ae0dce5d7"
    strings:
       $s1 = {00 4D 52 47 4F 2E 64 6C 6C 00 45 6E 74 65 72 79 00}
+      $s2 = "CloudDiskOWindows %s beta %s" fullword ascii
+      $s3 = "\Software\Mail.Ru\Mail.Ru_Disko" fullword ascii
+      $s4 = {40 53 56 57 41 54 41 55 41 56 41 57 48 81 EC B0 09 00 00 48 C7 84 24 48 01 00 00 FE FF FF FF 48 8B 05 BA 83 23 00 48 33 C4 48 89 84 24 A0 09 00 00 4D 8B E9 4D 8B E0 48 8B C2 48 8B F1}
    condition:
-      uint16(0) == 0x5a4d and all of them
+      uint16(0) == 0x5a4d and any of them
 }
 
 rule win_smanager_auto {
