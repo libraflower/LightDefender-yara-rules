@@ -9,6 +9,7 @@ rule Ransom_Ouroboros {
       $a_s1 = "C:\\ProgramData\\IDk.txt" fullword ascii
       $a_s2 = "C:\\ProgramData\\pkey.txt" fullword ascii
       $a_s3 = "Decrypt-info.txt" fullword
+      $a_s4 = "C:\\Users\\LEGION\\Desktop\\New folder\\sse_simd.cpp" fullword ascii
       $b_s1 = "sqlserver.exe" fullword ascii
       $b_s2 = "mysqld-opt.exe" fullword ascii
       $b_s3 = "threaad" fullword ascii
