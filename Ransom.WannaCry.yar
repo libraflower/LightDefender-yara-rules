@@ -1,24 +1,21 @@
-rule Ransom_WannaDecryptor: WannaDecryptor
-{
-        meta:
-                description = "Detection for common strings of WannaDecryptor"
- 
-        strings:
-                $id1 = "taskdl.exe" fullword ascii
-                $id2 = "taskse.exe" fullword ascii
-                $id3 = "r.wnry"
-                $id4 = "s.wnry"
-                $id5 = "t.wnry"
-                $id6 = "u.wnry"
-                $id7 = "msg/m_"
- 
-        condition:
-                uint16(0) == 0x5a4d and 3 of them
+rule Ransom_WannaCry {
+   meta:
+      description = "Ransom.WannaCry"
+      author = "LightDefender"
+      date = "2021-07-01"
+      hash1 = "925b3acaa3252bf4d660eab22856fff155f3106c2fee7567711cb34374b499f3"
+   strings:
+      $s1 = "WNcry@2ol7" fullword ascii
+      $s2 = "icacls . /grant Everyone:F /T /C /Q" fullword ascii
+      $s3 = "WanaCrypt0r" fullword ascii wide
+      $op1 = {BE D8 F4 40 00 53 8D 85 F4 FD FF FF 56 50 FF 15 88 80 40 00 56 FF 15 68 80 40 00 83 F8 FF 74 0D}
+   condition:
+      uint16(0) == 0x5a4d and 3 of them
 }
 
 rule Ransom_WannaCry_Variant {
    meta:
-      description = "Ransom.WannaCry (FlyStudio)"
+      description = "Ransom.WannaCry"
       author = "LightDefender"
       date = "2021-07-01"
       hash1 = "925b3acaa3252bf4d660eab22856fff155f3106c2fee7567711cb34374b499f3"
