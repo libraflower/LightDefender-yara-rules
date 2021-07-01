@@ -7,8 +7,9 @@ rule Ransom_spx {
       $s1 = {C7 EB CA E4 C8 EB BD E2 C3 DC CA DA C8 A8 C2 EB 00}
       $s2 = "pptxspx" fullword ascii
       $decrypt_key = "89213409" fullword ascii
+      $pdb = "F:\\Project2\\Release\\Project2.pdb" fullword ascii
    condition:
-      uint16(0) == 0x5a4d and all of them
+      uint16(0) == 0x5a4d and 2 of them
  }
  
  rule Ransom_spx_opcodes {
