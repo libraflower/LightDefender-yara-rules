@@ -159,6 +159,7 @@ rule Ransom_Stop {
       $s4 = "vunafula.exe"
       $s5 = "zatir.exe"
       $s6 = "E:\\Doc\\My work (C++)\\_Git\\Encryption\\Release\\encrypt_win_api.pdb"
+      $s7 = "SuspendYourMind" fullword ascii
    condition:
       uint16(0) == 0x5a4d and any of them
 }
