@@ -2,6 +2,20 @@ import "hash"
 import "pe"
 
 
+rule Backdoor_Mirai {
+   meta:
+      description = "Backdoor.Mirai"
+      author = "LightDefender"
+      date = "2021-07-01"
+   strings:
+      $s1 = "your_verry_fucking_gay" fullword ascii
+      $s2 = "airdropmalware" fullword ascii
+      $s3 = "TheWeeknd" fullword ascii
+      $header = {7F 45 4C 46 01 01 01}
+   condition:
+      $header at 0 and 3 of them
+}
+
 rule Mirai_Generic_Arch : MALW
 {
 	meta:
