@@ -16,6 +16,19 @@ rule Ransom_WannaDecryptor: WannaDecryptor
                 uint16(0) == 0x5a4d and 3 of them
 }
 
+rule Ransom_WannaCry_Variant {
+   meta:
+      description = "Ransom.WannaCry (FlyStudio)"
+      author = "LightDefender"
+      date = "2021-07-01"
+      hash1 = "925b3acaa3252bf4d660eab22856fff155f3106c2fee7567711cb34374b499f3"
+   strings:
+      $s1 = "Ooops, your files have been encrypted!"
+      $s2 = "c:\\users\\amirlord\\documents\\visual studio 2017\\Projects\\WindowsFormsApp7\\WindowsFormsApp7\\obj\\Debug\\WannaCry.pdb" fullword ascii
+   condition:
+      uint16(0) == 0x5a4d and any of them
+}
+
 rule Ransom_WannaCry_Variant_June_30 {
    meta:
       description = "Ransom.WannaCry (FlyStudio)"
