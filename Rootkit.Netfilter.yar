@@ -22,7 +22,7 @@ rule TrojanDropper_Netfilter {
       $s15 = "%s\\loader.exe" fullword ascii
       $s16 = "TSYSTEM\\CurrentControlSet\\Services\\netfilter" fullword wide
    condition:
-      uint16(0) == 0x5a4d and filesize < 200KB
+      uint16(0) == 0x5a4d and filesize < 200KB and
       5 of them
 }
 
@@ -36,6 +36,6 @@ rule Rootkit_Netfilter {
       $pdb1 = {00 43 3A 5C 55 73 65 72 73 5C 6F 6D 65 6E 5C 44 65 73 6B 74 6F 70 5C E6 96 B0 E5 BB BA E6 96 87 E4 BB B6 E5 A4 B9 20 28 34 29 5C 78 36 34 5C 52 65 6C 65 61 73 65 5C 6E 65 74 66 69 6C 74 65 72 64 72 76 2E 70 64 62 00}
       $pdb2 = {00 47 3A 5C E6 BA 90 E7 A0 81 5C 68 65 6C 6C 6F 5C 52 65 6C 65 61 73 65 5C 6E 65 74 66 69 6C 74 65 72 64 72 76 2E 70 64 62 00}
    condition:
-      uint16(0) == 0x5a4d and filesize < 200KB
+      uint16(0) == 0x5a4d and filesize < 200KB and
       any of them
 }
