@@ -94,5 +94,5 @@ rule Win_MSIL_Ransom
         $d2 = "Program Files (x86)" fullword
         $d3 = "GetExtension" fullword
     condition:
-        uint16(0) == 0x5a4d and (all of ($a*) or (any of ($b*) and 3 of (a*)) or (all of ($c*) and 4 of ($a*)) or (all of ($d*) and 4 of ($a*))) and pe.imphash() == "f34d5f2d4577ed6d9ceec516c1f5a744"
+        uint16(0) == 0x5a4d and (all of ($a*) or (any of ($b*) and 3 of ($a*)) or (all of ($c*) and 4 of ($a*)) or (all of ($d*) and 4 of ($a*))) and pe.imphash() == "f34d5f2d4577ed6d9ceec516c1f5a744"
 }
