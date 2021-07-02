@@ -158,3 +158,15 @@ rule hacktool_windows_cobaltstrike_in_memory
     condition:
         uint16(0) == 0x5a4d and 6 of them
 }
+rule APT_CobaltStrike_Beacon_Indicator {
+   meta:
+      description = "Detects CobaltStrike beacons"
+      author = "JPCERT"
+      reference = "https://github.com/JPCERTCC/aa-tools/blob/master/cobaltstrikescan.py"
+      date = "2018-11-09"
+   strings:
+      $v1 = { 73 70 72 6E 67 00 }
+      $v2 = { 69 69 69 69 69 69 69 69 }
+   condition:
+      uint16(0) == 0x5a4d and filesize < 300KB and all of them
+}
