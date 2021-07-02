@@ -39,7 +39,6 @@ rule Ransom_WannaCry_Variant_June_30 {
       $s4 = {BD AB BD E2 C3 DC C4 FA B5 C4 CB F9 D3 D0 CE C4}
       $s5 = {D2 AA D6 D8 C3 FC C3 FB BC D3 C3 DC B5 C4 CE C4}
       $s6 = {00 00 43 68 65 63 6B 20 50 61 79 6D 65 6E 74 D0}
-      $flystudio = {7cfb7edf68385fc3652f63015e93}
    condition:
-      uint16(0) == 0x5a4d and any of ($s*) and $flystudio
+      uint16(0) == 0x5a4d and any of ($s*)
 }
