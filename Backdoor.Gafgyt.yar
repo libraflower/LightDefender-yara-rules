@@ -38,6 +38,9 @@ rule Gafgyt_July_1 {
       $s4 = "/x4d/x20/x29/x28/x28/x22/x29/x45/x4f/x4b/x58/x50/x7b/x20/x5f/x57/x44/x44/x57/x44/" fullword ascii
       $s5 = "/x71/x3b/x38/x38/x20/x43/x57/x29/x57/x22/x29/x64/x32/x20/x4b/x58/x4b/x4b/x4c/x22/x44/x20/x2d/x44/x5f/" fullword ascii
       $s6 = "UDPBYPASS" fullword ascii
+      $s7 = "Is a named type file" fullword ascii
+      $s8 = "Structure needs cleaning" fullword ascii
+      $s9 = "No XENIX semaphores available" fullword ascii
    condition:
       uint16(0) == 0x457f and filesize < 600KB and 5 of them
 }
