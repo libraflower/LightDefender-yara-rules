@@ -3,7 +3,6 @@ rule Ransom_WannaCry {
       description = "Ransom.WannaCry"
       author = "LightDefender"
       date = "2021-07-01"
-      hash1 = "925b3acaa3252bf4d660eab22856fff155f3106c2fee7567711cb34374b499f3"
    strings:
       $s1 = "WNcry@2ol7" fullword ascii
       $s2 = "icacls . /grant Everyone:F /T /C /Q" fullword ascii
