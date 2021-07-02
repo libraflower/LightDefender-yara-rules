@@ -9,5 +9,5 @@ rule Adware_Gator {
       $s1 = "trickle.gator.com" fullword ascii
       $s2 = "ArBase Test Bitmap Window" fullword ascii
    condition:
-      uint16(0) == 0x5a4d and 2 of them or pe.imphash()="eb65511528443233fd34a3662670b83e"
+      uint16(0) == 0x5a4d and (2 of them or pe.imphash()=="eb65511528443233fd34a3662670b83e")
 }
