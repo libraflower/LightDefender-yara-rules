@@ -3,7 +3,6 @@ rule Ransomware_GandCrab_memory {
       description = "GandCrab Ransomware"
       author = "LightDefender"
       date = "2021-06-13"
-      hash1 = "ce9c9917b66815ec7e5009f8bfa19ef3d2dfc0cf66be0b4b99b9bebb244d6706"
    strings:
       $s1 = "On our page you will see instructions on payment and get the opportunity to decrypt 1 file for free."
       $s2 = "KRAB-DECRYPT.html"
