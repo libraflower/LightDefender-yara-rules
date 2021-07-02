@@ -11,7 +11,7 @@ rule Ransom_HiddenTear_1
         $s4 = "Send me some bitcoins or kebab"
         $s5 = "\\hidden_tear.pdb" ascii
     condition:
-        uint16(0) == 0x5a4d and any of them
+        uint16(0) == 0x5a4d and 3 of them
 }
 
 rule Ransom_HiddenTear_2
