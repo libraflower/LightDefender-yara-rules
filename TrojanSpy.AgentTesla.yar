@@ -367,7 +367,19 @@ rule spy_agenttesla2 {
       $x3 = "Microsoft.VisualBasic" ascii
       $x4 = "16.0.0.0" fullword ascii
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and 8 of them) or ( all of them )
+      uint16(0) == 0x5a4d and filesize < 2000KB and 8 of them
+ }
+
+rule spy_agenttesla3 {
+   meta:
+      description = "TrojanSpy.AgentTesla"
+      author = "LightDefender"
+      date = "2021-07-02"
+   strings:
+      $s1 = "8ae519dc-ada5-4050-9884-800c22accbe1" nocase ascii wide
+      $s2 = "1011cb3d-042d-40ac-acc0-f016f0215fe9" nocase ascii wide
+   condition:
+      uint16(0) == 0x5a4d and any of them
  }
 
 rule Agenttesla_telegram_bin
