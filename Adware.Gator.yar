@@ -1,7 +1,7 @@
 import "pe"
 rule Adware_Gator {
    meta:
-      description = "Adware.Gator"
+      description = "Adware.Gator (Trickler)"
       author = "LightDefender"
       date = "2021-07-02"
       hash1 = "968f0ae8656e4a53da28998da61bbbfe12a47ef708d309dddb8ccdd999914483"
