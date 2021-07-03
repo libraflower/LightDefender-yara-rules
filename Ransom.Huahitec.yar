@@ -1,8 +1,7 @@
-rule Huahitec {
+rule Ransom_Huahitec {
    meta:
-      description = "Huahitec - file Huahitec.exe"
+      description = "Ransom.Huahitec"
       author = "LightDefender"
-      reference = "https://github.com/Neo23x0/yarGen"
       date = "2021-07-03"
       hash1 = "4852f22df095db43f2a92e99384ff7667020413e74f67fcbd42fca16f8f96f4c"
    strings:
