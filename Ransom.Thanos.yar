@@ -1,6 +1,6 @@
-rule Ransom_Huahitec {
+rule Ransom_Thanos {
    meta:
-      description = "Ransom.Huahitec"
+      description = "Ransom.Thanos"
       author = "LightDefender"
       date = "2021-07-03"
       hash1 = "4852f22df095db43f2a92e99384ff7667020413e74f67fcbd42fca16f8f96f4c"
