@@ -321,3 +321,44 @@ rule win_ghost_rat_auto {
     condition:
         7 of them and filesize < 357376
 }
+
+rule Backdoor_Farfli {
+   meta:
+      description = "Backdoor.Farfli"
+      author = "LightDefender"
+      date = "2021-07-04"
+      hash1 = "231994c79a1fafe117deeb111a6ba3c026afa18a1e89522b8f81cc2f68dfd10a"
+   strings:
+      $a1 = "SpywareTerminatorShield" fullword ascii
+      $a2 = "AVWatchService" fullword ascii
+      $a3 = "ddos\\Server\\Release\\Xy" fullword ascii
+      $s1 = "rtvscan" fullword ascii
+      $s2 = "Sophos" fullword ascii
+      $s3 = "knsdtray" fullword ascii
+      $s4 = "beikesan" fullword ascii
+      $s5 = "acsseeis" fullword ascii
+      $s6 = "ajzpxwgh" fullword ascii
+      $s7 = "kxetray" fullword ascii
+      $s8 = "avcenter" fullword ascii
+      $s9 = "avgwdsvc" fullword ascii
+      $s10 = "fsavgui" fullword ascii
+      $s11 = "safedog" fullword ascii
+      $s12 = "mssecess" fullword ascii
+      $s13 = "kpfwtray" fullword ascii
+      $s14 = "rfwmain" fullword ascii
+      $s15 = "spidernt" fullword ascii
+      $s16 = "avgaurd" fullword ascii
+      $s17 = "nspupsvc" fullword ascii
+      $s18 = "qayouuuq" fullword ascii
+      $s19 = "auqyiyauekwamuyiie" fullword ascii
+      $s20 = "fuckyou" fullword ascii
+      $s21 = "SYSTEM\\Clore" fullword ascii
+      $s22 = "szDownRun" fullword ascii
+      $s23 = "BKavService" fullword ascii
+      $s24 = "QUHLPSVC" fullword ascii
+      $s25 = "QQPCRTP" fullword ascii
+      $s26 = "TMBMSRV" fullword ascii
+      $s27 = "MsMpEng" fullword ascii
+   condition:
+      uint16(0) == 0x5a4d and 1 of ($a*) and 10 of ($s*)
+}
