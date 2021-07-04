@@ -1,3 +1,4 @@
+import "pe"
 // aka. Ghost RAT, Gh0st RAT, PCRat
 rule Farfli {
     meta:
@@ -332,6 +333,7 @@ rule Backdoor_Farfli {
       $a1 = "SpywareTerminatorShield" fullword ascii
       $a2 = "AVWatchService" fullword ascii
       $a3 = "ddos\\Server\\Release\\Xy" fullword ascii
+      $a4 = "cmd.exe /c net user guest /active:yes && net user guest ratpp && net localgroup administrators guest /add && net guest admin" fullword ascii
       $s1 = "rtvscan" fullword ascii
       $s2 = "Sophos" fullword ascii
       $s3 = "knsdtray" fullword ascii
@@ -359,6 +361,11 @@ rule Backdoor_Farfli {
       $s25 = "QQPCRTP" fullword ascii
       $s26 = "TMBMSRV" fullword ascii
       $s27 = "MsMpEng" fullword ascii
+      $s28 = "\\\\.\\PHYSICALDRIVE0" fullword ascii
+      $s29 = "VIRUSfighter" fullword ascii
+      $s30 = "Mongoosa" fullword ascii
+      $s31 = "Lavasoft" fullword ascii
+      $s32 = "Immunet" fullword ascii
    condition:
-      uint16(0) == 0x5a4d and 1 of ($a*) and 10 of ($s*)
+      uint16(0) == 0x5a4d and (1 of ($a*) and 10 of ($s*))
 }
