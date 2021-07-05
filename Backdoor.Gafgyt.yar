@@ -45,6 +45,21 @@ rule Gafgyt_July_1 {
       uint16(0) == 0x457f and filesize < 600KB and 5 of them
 }
 
+rule Gafgyt_July_6 {
+   meta:
+      description = "Backdoor.Gafgyt"
+      author = "LightDefender"
+      date = "2021-07-06"
+      hash1 = "821d34f7978fc65fe3b570e86cce45edc921a6cbf02b127fb1263a8448a1f62a"
+   strings:
+      $s1 = "infected.log" fullword ascii
+      $s2 = "Samael-DDoS-Attack" fullword ascii
+      $s3 = "B0TK1LL" fullword ascii
+      $s4 = "This Device Has Been Infected by Samael Botnet Made By ur0a :)" ascii
+   condition:
+      uint16(0) == 0x457f and filesize < 600KB and 2 of them
+}
+
 rule elf_bashlite_auto {
 
     meta:
