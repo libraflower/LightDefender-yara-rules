@@ -11,7 +11,7 @@ rule Azorult
         uint16(0) == 0x5A4D and all of them
 }
 
-rule Azorult {
+rule Azorult_in_memory {
           meta:
             description = "detect Azorult in memory"
             author = "JPCERT/CC Incident Response Group"
