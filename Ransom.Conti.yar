@@ -1,7 +1,7 @@
 import "pe"
-rule Backdoor_Conti {
+rule Ransom_Conti {
    meta:
-      description = "Mozi"
+      description = "Ransom.Conti"
       author = "LightDefender"
       date = "2021-07-08"
    strings:
