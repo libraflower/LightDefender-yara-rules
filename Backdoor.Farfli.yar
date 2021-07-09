@@ -334,6 +334,7 @@ rule Backdoor_Farfli {
       $a2 = "AVWatchService" fullword ascii
       $a3 = "ddos\\Server\\Release\\Xy" fullword ascii
       $a4 = "cmd.exe /c net user guest /active:yes && net user guest ratpp && net localgroup administrators guest /add && net guest admin" fullword ascii
+      $a5 = "activatibleClassId" fullword wide
       $s1 = "rtvscan" fullword ascii
       $s2 = "Sophos" fullword ascii
       $s3 = "knsdtray" fullword ascii
@@ -366,6 +367,16 @@ rule Backdoor_Farfli {
       $s30 = "Mongoosa" fullword ascii
       $s31 = "Lavasoft" fullword ascii
       $s32 = "Immunet" fullword ascii
+      $s33 = "smtp.china.com" fullword ascii
+      $s34 = "Local\\SM0:%d:%d:%hs" fullword wide
+      $s35 = ".data$r$brc" fullword ascii
+      $s36 = ".data$dk00" fullword ascii
+      $s37 = ".data$dk00$brc" fullword ascii
+      $s38 = "select * from mail ORDER BY mail_id ASC" fullword ascii
+      $s39 = ".data$zz" fullword ascii
+      $s40 = ".data$00" fullword ascii
+      $s41 = "SUBJECT: <%s>" fullword ascii
+      $s42 = "WilError_03" fullword ascii
    condition:
       uint16(0) == 0x5a4d and (1 of ($a*) and 10 of ($s*))
 }
