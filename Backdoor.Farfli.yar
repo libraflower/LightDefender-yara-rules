@@ -380,3 +380,16 @@ rule Backdoor_Farfli {
    condition:
       uint16(0) == 0x5a4d and (1 of ($a*) and 10 of ($s*))
 }
+
+rule Backdoor_Farfli {
+   meta:
+      description = "Backdoor.Farfli"
+      author = "LightDefender"
+      date = "2021-07-17"
+      hash1 = "608a2479b8855c3ed60503e8cfcb88b25d3a37c486c7c11c07d031569363f4f8"
+   strings:
+      $s1 = "yzsaaa@163.com" fullword wide
+      $s2 = " Base Class Descriptor at (" fullword ascii
+   condition:
+      uint16(0) == 0x5a4d and all of them
+}
