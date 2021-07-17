@@ -24,3 +24,16 @@ rule Backdoor_LimeRAT {
       ( uint16(0) == 0x5a4d and ( 6 of them )
       ) or ( all of them )
 }
+
+rule Backdoor_LimeRAT_2 {
+   meta:
+      description = "LimeRAT"
+      author = "LightDefender"
+      date = "2021-07-17"
+   strings:
+      $s1 = "_Lambda$__R13-2" fullword ascii
+      $s2 = "Win32_Processor.deviceid=\"CPU0\"" fullword wide
+      $s3 = "schtasks /create /f /sc ONLOGON /RL HIGHEST /tn LimeRAT-Admin /tr \"'" fullword wide
+   condition:
+      uint16(0) == 0x5a4d and 2 of them
+}
