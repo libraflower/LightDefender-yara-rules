@@ -381,7 +381,7 @@ rule Backdoor_Farfli {
       uint16(0) == 0x5a4d and (1 of ($a*) and 10 of ($s*))
 }
 
-rule Backdoor_Farfli {
+rule Backdoor_Farfli_July17 {
    meta:
       description = "Backdoor.Farfli"
       author = "LightDefender"
