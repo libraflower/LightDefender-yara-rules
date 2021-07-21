@@ -16,6 +16,38 @@ rule Backdoor_Mirai {
       $header at 0 and 3 of them
 }
 
+rule Backdoor_Mirai_2 {
+   meta:
+      description = "Backdoor.Mirai"
+      author = "LightDefender"
+      date = "2021-07-21"
+      hash1 = "19f11c9f85f5328d2fff11dc6fd51a1a9b5b1a813b179cf468941c78262640db"
+      hash2 = "313d26bd272fad373e9b6c0efae6f04a48cced0b29a80b1ff49d5a78496b23ac"
+      hash3 = "33798085c4daf6210db3646183c7f13b54e8aa30d3d31510143db01fcee845a6"
+      hash4 = "7e37d4255a3af2864c15864a9e7ea745e8302e75c7c63eac88fe223cfd553405"
+      hash5 = "cad92edc5ad54d479314e04abdb3490d2271f1b7b305de0215bcef655ed5b79f"
+      hash6 = "e202a567d164d429fe0a32bf9edc91fab61ad78f5da090f5c688fdf39e50f324"
+      hash7 = "fac3928ee12386a63f3f284376e89a7338bf987c4db4f1292aca61778f3c8d3b"
+   strings:
+      $s1 = "dakuexecbin" fullword ascii
+      $s2 = "sefaexec" fullword ascii
+      $s3 = "deexec" fullword ascii
+      $s4 = "1337SoraLOADER" fullword ascii
+      $s5 = "airdropmalware" fullword ascii
+      $s6 = "trojan" fullword ascii
+      $s7 = "GhostWuzHere666" fullword ascii
+      $s8 = "wordminer" fullword ascii
+      $s9 = "newnetword" fullword ascii
+      $s10 = "netstats" fullword ascii
+      $s11 = "plzjustfuckoff" fullword ascii
+      $s12 = "131.153.18.72" fullword ascii
+      $s13 = "198.199.78.243" fullword ascii
+      $header = {7F 45 4C 46 01 01 01}
+   condition:
+      $header at 0 and 5 of them
+}
+
+
 rule Mirai_Generic_Arch : MALW
 {
 	meta:
