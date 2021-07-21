@@ -42,6 +42,10 @@ rule Backdoor_Mirai_2 {
       $s11 = "plzjustfuckoff" fullword ascii
       $s12 = "131.153.18.72" fullword ascii
       $s13 = "198.199.78.243" fullword ascii
+      $s14 = "scanspc" fullword ascii
+      $s15 = "scanppc" fullword ascii
+      $s16 = "scanmips" fullword ascii
+      $s17 = "scanmpsl" fullword ascii
       $header = {7F 45 4C 46 01 01 01}
    condition:
       $header at 0 and 5 of them
