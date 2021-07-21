@@ -1,5 +1,7 @@
 include "./Adware.FileTour.yar"
 include "./Adware.Gator.yar"
+include "./Backdoor.CCleaner.yar"
+include "./Backdoor.DanaBot.yar"
 include "./Backdoor.Farfli.yar"
 include "./Backdoor.Gafgyt.yar"
 include "./Backdoor.Hupigon.yar"
