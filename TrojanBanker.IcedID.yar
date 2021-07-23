@@ -19,6 +19,17 @@ rule MALWARE_Win_IceID {
         uint16(0) == 0x5a4d and ((all of ($n*) and 1 of ($s*)) or (3 of ($s*) and 1 of ($n*)))
 }
 
+rule Malware_IcedID_July_22 {
+   meta:
+      author = "LightDefender"
+      date = "2021-06-23"
+   strings:
+      $op1 = {8B450C25FF1FFCFF488B6C240848C1ED104881E5}
+      $op2 = {CCCCCCCCCCCCCCCCCCCCCCCC4881EC?80?000048}
+   condition:
+      uint16(0) == 0x5a4d and all of them
+ }
+
 rule win_icedid_auto {
 
     meta:
