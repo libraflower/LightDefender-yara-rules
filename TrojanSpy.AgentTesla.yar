@@ -370,7 +370,7 @@ rule spy_agenttesla2 {
       uint16(0) == 0x5a4d and filesize < 2000KB and 8 of them
  }
 
-rule spy_agenttesla3 {
+rule spy_agenttesla_Guid {
    meta:
       description = "TrojanSpy.AgentTesla"
       author = "LightDefender"
@@ -378,6 +378,18 @@ rule spy_agenttesla3 {
    strings:
       $s1 = "8ae519dc-ada5-4050-9884-800c22accbe1" nocase ascii wide
       $s2 = "1011cb3d-042d-40ac-acc0-f016f0215fe9" nocase ascii wide
+   condition:
+      uint16(0) == 0x5a4d and any of them
+ }
+ 
+ rule spy_agenttesla_Guid_New {
+   meta:
+      description = "TrojanSpy.AgentTesla"
+      author = "LightDefender"
+      date = "2021-07-28"
+   strings:
+      $s1 = {00002901002431643063333037342D383436612D346632332D626139312D396338396365623232386635}
+      $s2 = {00002901002430383933366566312D386636632D343731632D396431312D376234353238346361346136}
    condition:
       uint16(0) == 0x5a4d and any of them
  }
