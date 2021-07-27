@@ -146,7 +146,7 @@ rule TrojanSpy_Raccoon_July_21 {
 
 rule TrojanSpy_Raccoon_July_28 {
    meta:
-      description = "Ransom.Cerber"
+      description = "TrojanSpy.Raccoon"
       author = "LightDefender"
       date = "2021-07-28"
       hash1 = "7b608f567cdbb7a9ccce2a9937b34bb3b73e178efc3d2b9bc29e5fe905462bee"
