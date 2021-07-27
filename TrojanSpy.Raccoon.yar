@@ -130,7 +130,7 @@ rule MALWARE_Win_Raccoon {
     condition:
         uint16(0) == 0x5a4d and 8 of them
 }
-rule TrojanSpy_Raccoon_July21 {
+rule TrojanSpy_Raccoon_July_21 {
    meta:
       author = "LightDefender"
       date = "2021-07-21"
@@ -142,4 +142,21 @@ rule TrojanSpy_Raccoon_July21 {
       $op4 = {CCCCCCCCCCCCCCCCCCCCCC8B5424048B4C2408F7}
    condition:
       uint16(0) == 0x5a4d and 3 of them
+ }
+
+rule TrojanSpy_Raccoon_July_28 {
+   meta:
+      description = "Ransom.Cerber"
+      author = "LightDefender"
+      date = "2021-07-28"
+      hash1 = "7b608f567cdbb7a9ccce2a9937b34bb3b73e178efc3d2b9bc29e5fe905462bee"
+   strings:
+      $op1 = {558BEC83EC40837D0C00751C837D10007616837D}
+      $op2 = {8B4508C7000000000033C0E9D1020000837D0800}
+      $op3 = {558BEC6AFF68?89?420064A1000000005083EC24}
+      $op4 = {558BEC51894DFC8B45FCC6400C00837D08000F85}
+      $op5 = {CCCCCCCCCCCCCCCCCCCCCCCCCCCC8BFF558BEC}
+      $op6 = {83EC08535657A1????43003145F833C5508D45F0}
+   condition:
+      uint16(0) == 0x5a4d and 5 of them
  }
