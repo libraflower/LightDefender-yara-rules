@@ -6,9 +6,8 @@ rule ransom_JCrypt {
       date = "2021-06-13"
       hash1 = "3ccc016464e41de7be959c3b00bda1296eee1c50a2897e05c1abbc9034b23027"
    strings:
-      $x1 = "C:\\Users\\danie\\source\\repos\\EncrypterPOC-main\\WindowsFormsApp1\\obj\\Debug\\WindowsFormsApp1.pdb" fullword ascii
-      $x2 = "05c139ec-1f59-4bdf-8dec-1d7100c6e4cc" nocase ascii wide
-      $x3 = "C:\\Users\\cudden\\Downloads\\EncrypterPOC-main\\EncrypterPOC-main\\WindowsFormsApp1\\obj\\Debug\\WindowsFormsApp1.pdb" fullword ascii
+      $x1 = "05c139ec-1f59-4bdf-8dec-1d7100c6e4cc" nocase ascii wide
+      $x2 = "EncrypterPOC-main\\WindowsFormsApp1\\obj\\Debug\\WindowsFormsApp1.pdb" ascii
       $s1 = "WindowsFormsApp1.exe" fullword wide
       $s2 = "friendly.cyber.criminal@gmail.com" fullword wide
       $s3 = "Afterwards, please email your transaction ID to: danielthai101514@gmail.com" fullword wide
