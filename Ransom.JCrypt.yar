@@ -8,6 +8,7 @@ rule ransom_JCrypt {
    strings:
       $x1 = "C:\\Users\\danie\\source\\repos\\EncrypterPOC-main\\WindowsFormsApp1\\obj\\Debug\\WindowsFormsApp1.pdb" fullword ascii
       $x2 = "05c139ec-1f59-4bdf-8dec-1d7100c6e4cc" nocase ascii wide
+      $x3 = "C:\\Users\\cudden\\Downloads\\EncrypterPOC-main\\EncrypterPOC-main\\WindowsFormsApp1\\obj\\Debug\\WindowsFormsApp1.pdb" fullword ascii
       $s1 = "WindowsFormsApp1.exe" fullword wide
       $s2 = "friendly.cyber.criminal@gmail.com" fullword wide
       $s3 = "Afterwards, please email your transaction ID to: danielthai101514@gmail.com" fullword wide
