@@ -208,3 +208,21 @@ rule Trojan_Vidar {
     condition:
         uint16(0) == 0x5a4d and (3 of them)
 }
+
+rule TrojanSpy_Vidar_and_Stop_July_31 {
+   meta:
+      description = "TrojanSpy.Vidar"
+      author = "LightDefender"
+      date = "2021-07-31"
+   strings:
+      $op1 = {558BEC83EC}
+      $op2 = {8B450?}
+      $op3 = {558BEC6AFF68????420064A1000000005083EC}
+      $op4 = {558BEC518?}
+      $op5 = {CCCCCCCCCCCCCCCCCCCCCCCCCC8BFF558BEC83}
+      $op6 = {83EC08535657A1??????003145F833C5508D45F0}
+      $s1 = "LCMapStringW" fullword ascii
+      $s2 = {00 00 D4 01 47 65 74 46 69 6C 65 53 69 7A 65 00}
+   condition:
+      uint16(0) == 0x5a4d and all of them
+ }
