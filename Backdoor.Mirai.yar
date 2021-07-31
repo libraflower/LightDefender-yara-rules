@@ -7,13 +7,12 @@ rule Backdoor_Mirai {
       description = "Backdoor.Mirai"
       author = "LightDefender"
       date = "2021-07-01"
+      hash1 = "16e14763992fbd91d2552149ea589fe6b5a1c26334e707e0e48995abe73e78df"
    strings:
-      $s1 = "your_verry_fucking_gay" fullword ascii
-      $s2 = "airdropmalware" fullword ascii
-      $s3 = "TheWeeknd" fullword ascii
+      $s1 = "YourMicrowaveIsAPieceofShit" fullword ascii
       $header = {7F 45 4C 46 01 01 01}
    condition:
-      $header at 0 and 3 of them
+      $header at 0 and 2 of them
 }
 
 rule Backdoor_Mirai_2 {
@@ -51,6 +50,19 @@ rule Backdoor_Mirai_2 {
       $header at 0 and 5 of them
 }
 
+rule Backdoor_Mirai_3 {
+   meta:
+      description = "Backdoor.Mirai"
+      author = "LightDefender"
+      date = "2021-07-31"
+   strings:
+      $s1 = "your_verry_fucking_gay" fullword ascii
+      $s2 = "airdropmalware" fullword ascii
+      $s3 = "TheWeeknd" fullword ascii
+      $header = {7F 45 4C 46 01 01 01}
+   condition:
+      $header at 0 and 3 of them
+}
 
 rule Mirai_Generic_Arch : MALW
 {
