@@ -63,6 +63,7 @@ rule Win_Trojan_Ransom_Common
       $ = "The price for the recovery software is "
       $ = "<h3>How to Pay</h3><p>Send"
       $ = "bcdedit /set {default} recoveryenabled no"
+      $ = "To decrypt all the data"
     condition:
         uint16(0) == 0x5a4d and any of them
 }
