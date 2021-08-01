@@ -162,7 +162,21 @@ rule Ransom_Stop {
       $s7 = "SuspendYourMind" fullword ascii
       $s8 = "mowapevuvahoyobajimuluzo jojof xuvuxoyipunolakokedub hohivuligesohowu ferasorafawumahuzodisuley" fullword ascii
       $s9 = "fezekopupikayecicizojisowa zihebagaponaxo" fullword ascii
-      $s10 = "C:\\pelocilixeru 8 ruxigofohege-noxi54\\bigi.pdb" fullword ascii
+      $s10 = "bevopanorehikay" fullword ascii
+      $s11 = "labedubacosexuc" fullword ascii
    condition:
       uint16(0) == 0x5a4d and any of them
+}
+
+rule Ransom_Stop_2 {
+   meta:
+      description = "Ransom.Stop"
+      author = "LightDefender"
+      date = "2021-08-02"
+   strings:
+      $op1 = {003145F833C5508D45F064A300000000837D08007505E9980000006A04E8????000083C404C745FC000000008B450883E8208945E48B4DE48B511481E2FFFF}
+	  $op2 = {000083C404C38B4DF064890D00000000595F5E5B8BE55DC3CCCCCCCCCCCCCC}
+	  $s1 = {0000000000420075007300750068006F0070006500640000004C006F00760061006A00200062006900760065007800610070006F006A00650068000000}
+   condition:
+      uint16(0) == 0x5a4d and all of them
 }
