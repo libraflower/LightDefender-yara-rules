@@ -1,18 +1,18 @@
 import "hash"
 import "pe"
 
-
-rule Backdoor_Mirai {
+rule Backdoor_Mirai_1 {
    meta:
       description = "Backdoor.Mirai"
       author = "LightDefender"
       date = "2021-07-01"
-      hash1 = "16e14763992fbd91d2552149ea589fe6b5a1c26334e707e0e48995abe73e78df"
    strings:
-      $s1 = "YourMicrowaveIsAPieceofShit" fullword ascii
+      $s1 = "your_verry_fucking_gay" fullword ascii
+      $s2 = "airdropmalware" fullword ascii
+      $s3 = "TheWeeknd" fullword ascii
       $header = {7F 45 4C 46 01 01 01}
    condition:
-      $header at 0 and 2 of them
+      $header at 0 and 3 of them
 }
 
 rule Backdoor_Mirai_2 {
@@ -55,13 +55,37 @@ rule Backdoor_Mirai_3 {
       description = "Backdoor.Mirai"
       author = "LightDefender"
       date = "2021-07-31"
+      hash1 = "16e14763992fbd91d2552149ea589fe6b5a1c26334e707e0e48995abe73e78df"
    strings:
-      $s1 = "your_verry_fucking_gay" fullword ascii
-      $s2 = "airdropmalware" fullword ascii
-      $s3 = "TheWeeknd" fullword ascii
+      $s1 = "YourMicrowaveIsAPieceofShit" fullword ascii
       $header = {7F 45 4C 46 01 01 01}
    condition:
-      $header at 0 and 3 of them
+      $header at 0 and 2 of them
+}
+
+rule Backdoor_Mirai_4 {
+   meta:
+      description = "Backdoor.Mirai"
+      author = "LightDefender"
+      date = "2021-08-01"
+      hash1 = "0a962f3e1e5c14a7a4ef08a00512030669beca5f5a143e955450d0beee212258"
+      hash2 = "0e144ed6bd445e2bb7c15bd9b50e00a73f2135b93919cfff8e0b67b3600c2b26"
+      hash3 = "55af9ed857a717106cd570794bb34d1e0b966b41dac86c87f384f508d88bf5a3"
+      hash4 = "6a78ac289ec2d1acb5510cc7156634e3dc938115f6f3cb6fd035c4954f0593de"
+      hash5 = "6d1c12f73c92036da4ab02d756db3f34f0fd58f341a9a1c245f314a5c27c58d2"
+      hash6 = "ab2c9018c9cd5964dee5cd7775fcce5774e4d8f71e8a5d7a0b2c2a18f6af7aed"
+      hash7 = "b6d0d8e89763f4df5dc86ab2edc7487a63c6a4659fdd61203ce9f99d00a31656"
+      hash8 = "d218a3b902a3d7407f647b2ac27f0ee6117fda96fd8b368433882eb3c1c20390"
+      hash9 = "e27849c2ad6d26a95b7d16ebc20286f1252ea7c8c676b12c7affc6f9afcd9c2a"
+   strings:
+      $s1 = "/bin/busybox PEACH" fullword ascii
+      $s2 = "peachy botnet" fullword ascii
+      $s3 = "applet not found" fullword ascii
+      $s4 = "136.144.41.71" fullword ascii
+      $s5 = ":/bin:/usr/bin" fullword ascii
+      $header = {7F 45 4C 46 01 01 01}
+   condition:
+      $header at 0 and all of them
 }
 
 rule Mirai_Generic_Arch : MALW
