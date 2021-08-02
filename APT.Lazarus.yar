@@ -1,6 +1,6 @@
-rule apt_Lazarus {
+rule APT_Lazarus {
    meta:
-      description = "apt Lazarus"
+      description = "APT.Lazarus"
       date = "2021-06-23"
       author = "LightDefender"
       hash1 = "e3ec6eac76a6b6692a56e2eac4106d1309a4aa2d0aca52823b6ddb8d4f4428d9"
