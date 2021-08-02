@@ -65,7 +65,7 @@ rule Win_Trojan_Ransom_Common
       $ = "bcdedit /set {default} recoveryenabled no"
       $ = "To decrypt all the data"
       $ = "wmic shadowcopy delete /nointeractive" nocase
-      $ = "vssadmin resize shadowstorage /for=<backed volume>/on=<backup location volume> /maxsize=<new size>" nocase
+      $ = "vssadmin resize shadowstorage /for" nocase
     condition:
         uint16(0) == 0x5a4d and any of them
 }
