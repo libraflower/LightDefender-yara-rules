@@ -1,6 +1,8 @@
 include "./Adware.FileTour.yar"
 include "./Adware.Gator.yar"
+include "./Adware.ICwbSwaroht.yar"
 include "./Adware.Softcnapp.yar"
+include "./Adware.VZip.yar"
 include "./Backdoor.AsyncRAT.yar"
 include "./Backdoor.BazarLoader.yar"
 include "./Backdoor.CCleaner.yar"
