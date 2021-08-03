@@ -27,7 +27,7 @@ rule Trojan_Cutwail_1 {
       $s20 = "Jahoxakejet" fullword ascii
    condition:
       uint16(0) == 0x5a4d and
-      1 of ($x*) and 5 of them
+      1 of ($x*) and 6 of ($s*)
 }
 
 rule Trojan_Cutwail_2 {
