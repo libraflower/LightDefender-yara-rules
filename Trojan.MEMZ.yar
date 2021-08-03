@@ -46,6 +46,5 @@ rule memz_exe {
       $x3 = "note.txt"
       $x4 = "BitBlt" fullword ascii
    condition:
-      uint16(0) == 0x5a4d and filesize < 40KB and
-      3 of them
+      5 of them
 }
