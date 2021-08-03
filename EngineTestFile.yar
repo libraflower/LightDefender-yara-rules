@@ -18,5 +18,5 @@ rule HUORONG_TEST_FILE {
    strings:
       $s1 = "HUORONG ANTIVIRUS ENGINE TEST FILE"
    condition:
-      uint16(0) == 0x5a4d and all of them
+      all of them
 }
