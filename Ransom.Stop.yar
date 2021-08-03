@@ -165,7 +165,7 @@ rule Ransom_Stop {
       $s10 = "bevopanorehikay" fullword ascii
       $s11 = "labedubacosexuc" fullword ascii
    condition:
-      uint16(0) == 0x5a4d and any of them
+      any of them
 }
 
 rule Ransom_Stop_2 {
