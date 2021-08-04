@@ -173,7 +173,7 @@ rule APT_CobaltStrike_Beacon_Indicator {
 rule CobaltStrike_ShellCode
 {
     meta:
-        description = "HackTool.CobaltStrike"
+        description = "Backdoor.CobaltStrike"
         author = "LightDefender"
         date = "2021-08-02"
     strings:
@@ -181,4 +181,17 @@ rule CobaltStrike_ShellCode
         $ = {68 6E 65 74 00 68 77 69 6E 69 54 68 4C 77 26 07 FF D5}
     condition:
         any of them
+}
+
+rule CobaltStrike_Payload
+{
+    meta:
+        description = "Backdoor.CobaltStrike"
+        author = "LightDefender"
+        date = "2021-08-04"
+    strings:
+        $ = "%c%c%c%c%c%c%c%c%cMSSE-%d-server" fullword ascii
+        $ = {B9 AA 26 00 00 31 D2 C7 44 24 28 5C 00 00 00 C7 44 24 24 65 00 00 00 C7 44 24 20 70 00 00 00 C7 44 24 1C 69 00 00 00 C7 44 24 18 70 00 00 00 F7 F1 C7 44 24 14 5C 00 00 00 C7 44 24 10 2E 00 00 00 C7 44 24 0C 5C 00 00 00 C7 44 24 08 5C 00 00 00 C7 44 24 04 44 40 40 00 C7 04 24 F0 53 40 00 89 54 24}
+    condition:
+        all of them
 }
