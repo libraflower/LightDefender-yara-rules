@@ -88,6 +88,60 @@ rule Backdoor_Mirai_4 {
       $header at 0 and all of them
 }
 
+rule Mirai_Aug_3 {
+   meta:
+      description = "Backdoor.Mirai"
+      author = "LightDefender"
+      date = "2021-08-04"
+      hash1 = "023e1861a8ed70114bf2de8b3fa9a1d1d1f17dc6a9a4b1a103a45ce6d0af6403"
+      hash2 = "06e28121840dc393205119e8e070b055acf5c8903bd4f65338ea854f40bc287f"
+      hash3 = "081d225ae39659e6d20b413ca7fd97e0894cda2b17afc12af36bbda3e0d84926"
+      hash4 = "2b0586cc22d6f97b545675b3df6cafd7723cee0a8064992d3266055bfdd49fe6"
+      hash5 = "33cd409dc7b32a9587e0d20e51a7a70da61245cb86adff3f799935896b551d55"
+      hash6 = "67a4dff2d8f461ab987039f666695a52f9a60346ac867b8075c294474e16c002"
+      hash7 = "7f57c7d3ee07b74c375ef861c83f2de445001701c3d8fb87c1b9c5350f3172f0"
+      hash8 = "83a5f1b66ada31e0c3dc7f406d6f8a713481ac4cca262529cba38b6a6e684e8e"
+      hash9 = "89a51f3d83e127c6b9ffcf862aa48292d8ec30b0b1a655f58065595755e2799e"
+      hash10 = "94097ec769ef5e8bccb409d76682eae377380e473216de298511a6d6beef5fa7"
+      hash11 = "9c720fe11463bc966611e955782d3a309490a933d7d26505b9229b4bf12c57ec"
+      hash12 = "a0467702202ef43e0a6a6036a616f7aa744852b190d528e7fdc8e55d8ed0606d"
+      hash13 = "a828ed22e636b655fa96ca8096010d32bfa729c282fef3afb1e3193302a2a1bf"
+      hash14 = "abbdc3e208fca4b75ffa66ee81165737403cd9d850f10850230688fa9affa0bb"
+      hash15 = "b47213623b3c07711fc2b405cf03dbb9f1c5162fad22ff0eee7144a962b2a332"
+      hash16 = "b7d2fc7c2302f93fac1d21c2313b157707c32761832f17eb86f556459f894750"
+      hash17 = "b8a798108c62312fe8d6b6a38134d08c5581d66a0540feb49928baadcd27201a"
+      hash18 = "bd82aa484cd78fad40d790856ee56946a32700c17b0003bebbc6c896b9f9a98a"
+      hash19 = "c21c3031870297ebfd81db6b25d992048861704abc4ab49954a3cf58ba941931"
+      hash20 = "ca9b9fb575695e8542bdb63acd9c9c47de4fa3fa86466cbd6c0029db8ed897cf"
+      hash21 = "cba3acaaf43bf09868e11dae733fd13c4cf8b9dd1de03e5aacea9badeff7ee86"
+      hash22 = "ceda4455eef9ccc448e33f146bfb65fe936785f869935aee9e77e2e0e99eae9d"
+      hash23 = "db1471220052aab0c4c60c12a8eccbd9e604292b27af34f9fd7b7130ab1ec7be"
+   strings:
+      $s1 = "xmhdipc" fullword ascii
+      $s2 = "realtek" fullword ascii
+      $s3 = "dreambox" fullword ascii
+      $s4 = "juantech" fullword ascii
+      $s5 = "/bin/busybox PEACH" fullword ascii
+      $s6 = "peachy botnet" fullword ascii
+      $s7 = "applet not found" fullword ascii
+      $s8 = "meinsm" fullword ascii
+      $s9 = "admin1234" fullword ascii
+      $s10 = "administrator" fullword ascii
+      $s11 = "Administrator" fullword ascii
+      $s12 = "password" fullword ascii
+      $s13 = "default" fullword ascii
+      $s14 = "smcadmin" fullword ascii
+      $s15 = "supervisor" fullword ascii
+      $s16 = "7ujMko0vizxv" fullword ascii
+      $s17 = "7ujMko0admin" fullword ascii
+      $s18 = "Zte521" fullword ascii
+      $s19 = "klv1234" fullword ascii
+      $s20 = "admin1" fullword ascii
+   condition:
+      ( uint16(0) == 0x457f and ( 8 of them )
+      ) or ( all of them )
+}
+
 rule Mirai_Generic_Arch : MALW
 {
 	meta:
