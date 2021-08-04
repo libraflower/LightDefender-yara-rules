@@ -195,3 +195,18 @@ rule CobaltStrike_Payload
     condition:
         any of them
 }
+
+rule CobaltStrike_Malicious_HTA {
+   meta:
+      description = "Backdoor.CobaltStrike"
+      author = "LightDefender"
+      date = "2021-08-04"
+   strings:
+      $var_shell = "CreateObject(\"Wscript.Shell\")" nocase
+      $RunPowerShell = "powershell -nop -w hidden -encodedcommand " nocase
+      $DropFile = ".Write Chr(CLng(\"&H\" & Mid(" nocase
+      $Obfuscator = "&\"Long\"&Chr(44)&" nocase
+      $Script = "<script language=\"vbscript\">" nocase
+   condition:
+      $var_shell and $Script and 3 of them
+}
