@@ -66,6 +66,7 @@ rule Win_Trojan_Ransom_Common
       $ = "To decrypt all the data"
       $ = "wmic shadowcopy delete /nointeractive" nocase
       $ = "vssadmin resize shadowstorage /for" nocase
+      $ = "delete catalog -quiet" fullword wide
     condition:
         uint16(0) == 0x5a4d and any of them
 }
