@@ -215,7 +215,7 @@ rule CobaltStrike_imphash {
    meta:
       description = "Backdoor.CobaltStrike"
       author = "LightDefender"
-      date = "2021-08-04"
+      date = "2021-08-06"
       reference = "https://twitter.com/abuse_ch/status/1422939795450474498"
    condition:
       pe.imphash() == "829da329ce140d873b4a8bde2cbfaa7e"
