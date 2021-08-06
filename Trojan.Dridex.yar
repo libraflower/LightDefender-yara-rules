@@ -1167,5 +1167,6 @@ rule Win32_Trojan_Dridex : tc_detection malicious
 
 rule Dridex_imphashes {
 	condition:
-		pe.imphash() == "5594ced7851e7059f91664ceabe2c1e6" or pe.imphash() == "987b9d7dc84d935c3675da82d40e06f2"
+		pe.imphash() == "5594ced7851e7059f91664ceabe2c1e6" or pe.imphash() == "987b9d7dc84d935c3675da82d40e06f2" or pe.imphash() == "39ea6703ace4f75b2e32f9bfc2ceb0a8" or 
+		pe.imphash() == "6eb7ecc6c2e948f718b1179f888ea193" or pe.imphash() == "de31dd75abe38332ca3d0df9db913835"
 }
