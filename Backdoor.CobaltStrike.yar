@@ -156,8 +156,22 @@ rule hacktool_windows_cobaltstrike_in_memory
         $s8 = "%d is an x64 process (can't inject x86 content)"
         $op1 = {C7 45 F0 0? 00 00 00 E9 BF A3 BC FF}
     condition:
-        uint16(0) == 0x5a4d and 6 of them
+        6 of them
 }
+
+rule cobaltstrike_beacon_in_memory
+{
+    meta:
+        description = "Backdoor.CobaltStrike"
+        author = "LightDefender"
+        date = "2021-08-06"
+    strings:
+        $s1 = "beacon.x64.dll" fullword
+        $s2 = "F	%I64d	%02d/%02d/%02d %02d:%02d:%02d	%s" fullword
+    condition:
+        all of them
+}
+
 rule APT_CobaltStrike_Beacon_Indicator {
    meta:
       description = "Detects CobaltStrike beacons"
