@@ -1,3 +1,4 @@
+import "pe"
 rule RemcosRAT_Aug_5 {
    meta:
       description = "Backdoor.RemcosRAT"
@@ -28,5 +29,5 @@ rule RemcosRAT_Aug_5 {
       $s20 = "[Chrome StoredLogins found, cleared!]" fullword ascii
    condition:
       ( uint16(0) == 0x5a4d and 1 of ($x*) and 4 of them
-      ) or ( 12 of them )
+      ) or ( 12 of them ) or pe.imphash() == "d3a62971944197f0701c7049a9c739d1"
 }
