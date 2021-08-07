@@ -225,12 +225,12 @@ rule CobaltStrike_Malicious_HTA {
       $var_shell and $Script and 3 of them
 }
 
-rule CobaltStrike_imphash {
+rule CobaltStrike_imphashes {
    meta:
       description = "Backdoor.CobaltStrike"
       author = "LightDefender"
       date = "2021-08-06"
       reference = "https://twitter.com/abuse_ch/status/1422939795450474498"
    condition:
-      pe.imphash() == "829da329ce140d873b4a8bde2cbfaa7e"
+      pe.imphash() == "829da329ce140d873b4a8bde2cbfaa7e" or pe.imphash() == "dc25ee78e2ef4d36faa0badf1e7461c9"
 }
