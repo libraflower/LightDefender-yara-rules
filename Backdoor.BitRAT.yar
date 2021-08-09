@@ -1,3 +1,4 @@
+import "pe"
 rule BitRAT_imphash {
    meta:
       description = "Backdoor.BitRAT"
