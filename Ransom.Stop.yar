@@ -165,6 +165,7 @@ rule Ransom_Stop {
       $s10 = "bevopanorehikay" fullword ascii
       $s11 = "labedubacosexuc" fullword ascii
       $s12 = "Leyifuyitefam jagucubolim9Cixuco"
+      $s13 = "Zab xeyilipawemeliyovadusekelu bevusibivi" fullword ascii
    condition:
       any of them
 }
