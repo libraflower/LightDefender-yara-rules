@@ -585,3 +585,37 @@ rule Emotet {
 
           condition: all of ($v4*) or $v5a or $v5b or $v6a or all of ($v7*)
 }
+
+rule Emotet_epoch5 {
+   meta:
+      description = "TrojanBanker.Emotet"
+      author = "LightDefender"
+      date = "2021-11-20"
+      hash1 = "1f565ad47dd6520e252a7256073fc053d0cbbeedcc1612d49c097b1288221569"
+      hash2 = "439e287370b5033265cedd5ac7db241b392338863db741282609b62adc1abe2f"
+      hash3 = "4ca7f800e9cb0ea01f9bfccbfa5a122e8c7a0d1a03b7536d82e0c38c80fa52bc"
+      hash4 = "688d4033139158dc68ac3835ff5013cf8ae240d685b2c8a3caeb2d18c85feb9b"
+      hash5 = "a7343086d72f81f91cedc05d88b11cf44ba5da9ac6c25983870f3a77f854f4e9"
+      hash6 = "c360f3d22b53da4a7d9b7bf061867c2a3f95120035b946cfe709b3a3743258d8"
+      hash7 = "c3895b6c3c964ba758a478b0d6d84c5c4205bd18372b0cd055f07f90116d6342"
+      hash8 = "cd56e26da71e89243b2bfe42b71c0b139f53508067c5796885104a8d287d0c7b"
+   strings:
+      $s1 = "tpvsferdl4.dll" fullword ascii
+      $s2 = "showing his face, and shaking his head, and rubbing his hands." fullword ascii
+      $s3 = "Successful endinging - " fullword ascii
+      $s4 = "Init state ending - Ok." fullword ascii
+      $s5 = "Pressure or more is turned on, the temperature inside reaching." fullword ascii
+      $s6 = "from small units to huge ones made to accommodate " fullword ascii
+      $s7 = "Segment to search for extremes" fullword ascii
+      $s8 = "1.2 * x - 3" fullword ascii
+      $s9 = "he rules the ciphering-book, and now he throws his eyes sideways." fullword ascii
+      $s10 = ".?AVLogFunc@@" fullword ascii
+      $s11 = "1 / (2 * sqrt(x))" fullword ascii
+      $s12 = "He was as good as his word, if that were all right which I had a secret misgiving was nearly ." fullword ascii
+      $s13 = "Being discovered in tears, instead of cheers, on account." fullword ascii
+      $s14 = ".  Last error = " fullword ascii
+      $s15 = "An error occurred writing to the file" fullword ascii
+   condition:
+      ( uint16(0) == 0x5a4d and ( 8 of them )
+      ) or ( all of them )
+}
