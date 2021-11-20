@@ -619,3 +619,34 @@ rule Emotet_epoch5 {
       ( uint16(0) == 0x5a4d and ( 8 of them )
       ) or ( all of them )
 }
+
+rule Emotet_Nov_20 {
+   meta:
+      description = "TrojanBanker.Emotet"
+      author = "LightDefender"
+      date = "2021-11-20"
+      hash1 = "0062304503f928e8bb0e8bf3fe2466bb4fe26050bf658cf11b4c91019ddf3c3d"
+      hash2 = "01108f7dec8564e4f130d0b3e49b5e30c08bcdfcf1e75723cddce7494c5f8db7"
+      hash3 = "067f4553e9455d958d1c231e6d9c199d6c0344f311eb0c38585d37be62178bff"
+      hash4 = "10b1288d251250fda00e4a0ccfb8016eefe083b58c6b8e963be8b0761c5cdd15"
+      hash5 = "12449bb00d21b4109606488d739abe928c168b7b8361c3d88bd6baf42cdeeb9c"
+      hash6 = "142d330305cf2bba895b000b9c7c2da6c6b38cb728d3fb347da8dd9f0bed4845"
+      hash7 = "1cee3d1ff9a6a532c096be8e058c7e173b98fa45fea3f734521ee11f98e6eafb"
+      hash8 = "20385691b83c23010aff7923eafbd39d6fd3c9717982ba2d2478e6cbf5154fe7"
+      hash9 = "207b6e0048c2cc9fb8373f0632fcd33675eb2a469e830a408929fcf73c2d8137"
+      hash10 = "26dac81120fd574e8e1d26eaaabf95cc8b067143790fb74fc31742ae35201510"
+      hash11 = "2da599dc3f8fa335ad0c11fe00adc820f97c8733b5fb6eedfde6e1fad6754113"
+   strings:
+      $s1 = "Performance Monitor - (Reload Configuration)" fullword wide
+      $s2 = "Performance Monitor - (Edit Configuration)" fullword wide
+      $s3 = "\\PerfmonBar\\config.xml" fullword wide
+      $s4 = "        'ass.DLL'" fullword ascii
+      $s5 = "perfbar" fullword ascii
+      $s6 = ".?AV?$CComAggObject@VCPerfBar@@@ATL@@" fullword ascii
+      $s7 = ".?AV?$IDispatchImpl@UIPerfBar@@$1?IID_IPerfBar@@3U_GUID@@B$1?LIBID_PerfmonBarLib@@3U3@B$00$0A@VCComTypeInfoHolder@ATL@@@ATL@@" fullword ascii
+      $s8 = ".?AV?$CComContainedObject@VCPerfBar@@@ATL@@" fullword ascii
+      $s9 = ".?AV?$CComObject@VCPerfBar@@@ATL@@" fullword ascii
+      $op1 = {55 8B EC 83 EC 1C 53 56 8B F1 8B DA 89 5D F8 89 75 EC 8B 46 3C 8B 44 30 78 85 C0 75 06 5E 5B 8B}
+   condition:
+      uint16(0) == 0x5a4d and ( 6 of them or all of ($op*) )
+}
